@@ -1,15 +1,31 @@
+/*
+File: style.css
+91.461 Assignment: Creating Your First Web Page
+Victor M Espaillat, UMass Lowell Computer Science, victor_espaillat@student.uml.edu
+
+Copyright (c) 2019 by Victor M. Espaillat. All rights reserved. May be freely
+copied or excerpted for educational purposes with credit to the author.
+Updated by VME on September 16, 2019
+
+This is a stylesheet for my website. To summarize, here I add a dark background
+color, use paddings to position text and images in a more readable layout, and
+modify fonts and colors.
+*/
+
 * {
     background-color: #242424;
-
     font-size: 24px;
     color: #CCCCCC;
     font-family: 'Bitter', serif;
-
     word-spacing: 5px;
     letter-spacing: 5px;
+    margin: 0;
+    padding: 0;
+}
 
-    /* top, right, bottom, left */
-    margin: 0 0 0 10px;
+.header {
+    /* top right bottom left */
+    padding: 0 0 60px 20px ;
 }
 
 h1 {
@@ -19,61 +35,57 @@ h1 {
     color: #FFFFFF;
     font-size: 72px;
     font-weight: 1;
-    margin-bottom: 0;
-
 }
 
 h2 {
-    font-weight: 1;
     font-size: 36px;
+}
 
-    margin: 0 0 60px 20px;
+.content {
+    padding: 0 0 100px 40px;
 }
 
 .tab1 {
-    margin: 30px 0 0 20px;
+    padding: 30px 0 0 40px;
+}
+
+.tab1 p {
+    padding-bottom: 5px;
 }
 
 .tab2 {
-    margin: 30px 0 15px 80px;
+    padding: 0 0 10px 40px;
 }
 
 .tab3 {
-    margin: 0 0 10px 80px;
+    padding-left: 80px;
 }
 
-.tab4 {
-    margin: 0 0 100px 80px;
+.list1 {
+    padding-left: 40px;
 }
 
-ul.one {
-    margin: 0 0 0px 100px;
+.list1 p {
+    padding: 0 0 5px 0
 }
 
-p.one {
-    word-spacing: 2px;
-    letter-spacing: 2px;
-    line-height: 50px;
+.list1 ul {
+    padding-left: 40px
 }
 
-.one li, b{
+.list1 li, b{
     font-size: 12px;
-    margin: 0 0 5px 0;
+    padding-bottom: 5px;
     word-spacing: 2px;
     letter-spacing: 2px;
 }
 
-ul.two {
-    margin: 5px 0 0 0;
-}
-
-img {
-    margin-left: 90px;
+.list2 {
+    padding-top: 5px;
 }
 
 img.one {
     width: 450px;
-
 }
 
 img.two {
@@ -86,5 +98,5 @@ a {
 }
 
 video {
-    margin-top: 15px
+    padding-bottom: 15px;
 }
