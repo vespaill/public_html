@@ -1,51 +1,90 @@
 * {
-    font-size: 36px;
-    color: #CCCCCC;
     background-color: #242424;
+
+    font-size: 24px;
+    color: #CCCCCC;
     font-family: 'Bitter', serif;
-    margin-left: 10px;
+
     word-spacing: 5px;
     letter-spacing: 5px;
-    margin: 0px 0px 30px 0px;
+
+    /* top, right, bottom, left */
+    margin: 0 0 0 10px;
 }
 
-.tab1 {
-    margin-left: 20px;
-}
-
-.bullets li, strong{
-    font-size: 20px;
-    margin: 0 0 10px 40px;
-}
-
-.tab2 {
-    margin-left: 80px;
-}
-
-.images {
-    margin-left: 100px;
-    width: 550;
-    height: 376px;
-    margin-bottom: 80px;
-}
-
-.header h1 {
+h1 {
     font-family: 'Courgette', cursive;
     word-spacing: 30px;
     letter-spacing: 10px;
     color: #FFFFFF;
     font-size: 72px;
     font-weight: 1;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 0;
+
 }
 
-.header h2 {
-    margin: 0;
-    padding: 0;
-    margin-left: 10px;
+h2 {
     font-weight: 1;
-    margin: 0px 0px 60px 0px;
+    font-size: 36px;
+
+    margin: 0 0 60px 20px;
+}
+
+.tab1 {
+    margin: 30px 0 0 20px;
+}
+
+.tab2 {
+    margin: 30px 0 15px 80px;
+}
+
+.tab3 {
+    margin: 0 0 10px 80px;
+}
+
+.tab4 {
+    margin: 0 0 100px 80px;
+}
+
+ul.one {
+    margin: 0 0 0px 100px;
+}
+
+p.one {
+    word-spacing: 2px;
+    letter-spacing: 2px;
+    line-height: 50px;
+}
+
+.one li, b{
+    font-size: 12px;
+    margin: 0 0 5px 0;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+
+ul.two {
+    margin: 5px 0 0 0;
+}
+
+img {
+    margin-left: 90px;
+}
+
+img.one {
+    width: 450px;
 
 }
 
+img.two {
+    width: 900px;
+}
+
+a {
+    text-decoration: none;
+    color: #0645AD;
+}
+
+video {
+    margin-top: 15px
+}
