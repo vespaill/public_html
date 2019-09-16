@@ -1,0 +1,51 @@
+* {
+    font-size: 36px;
+    color: #CCCCCC;
+    background-color: #242424;
+    font-family: 'Bitter', serif;
+    margin-left: 10px;
+    word-spacing: 5px;
+    letter-spacing: 5px;
+    margin: 0px 0px 30px 0px;
+}
+
+.tab1 {
+    margin-left: 20px;
+}
+
+.bullets li, strong{
+    font-size: 20px;
+    margin: 0 0 10px 40px;
+}
+
+.tab2 {
+    margin-left: 80px;
+}
+
+.images {
+    margin-left: 100px;
+    width: 550;
+    height: 376px;
+    margin-bottom: 80px;
+}
+
+.header h1 {
+    font-family: 'Courgette', cursive;
+    word-spacing: 30px;
+    letter-spacing: 10px;
+    color: #FFFFFF;
+    font-size: 72px;
+    font-weight: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.header h2 {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    font-weight: 1;
+    margin: 0px 0px 60px 0px;
+
+}
+
