@@ -13,46 +13,22 @@ modify fonts and colors.
 */
 
 * {
-    margin:0;
-    padding:0
-}
-
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
-}
-
-body {
-    background: url('images/star_pattern1.png');
+    background-color: #242424;
     font-size: 24px;
     color: #CCCCCC;
     font-family: 'Bitter', serif;
     word-spacing: 5px;
     letter-spacing: 5px;
-    text-align: center;
-
+    margin: 0;
+    padding: 0;
 }
 
-#wrapper {
-    margin: auto;
-    margin-bottom: 50px;
-    width: 1000px;
-    height: 40vw;
-    overflow: scroll;
-
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    background-color: #343434;
-}
-
-header {
+.header {
     /* top right bottom left */
-    padding: 30px 0 120px 0;
-    text-align: center;
-
+    padding: 0 0 60px 20px ;
 }
 
-header h1 {
+h1 {
     font-family: 'Courgette', cursive;
     word-spacing: 30px;
     letter-spacing: 10px;
@@ -61,109 +37,66 @@ header h1 {
     font-weight: 1;
 }
 
-header h2 {
+h2 {
     font-size: 36px;
 }
 
-#content h1 {
-    margin: 60px 0 60px 0;
+.content {
+    padding: 0 0 100px 40px;
 }
 
-nav {
-    background-color: black;
-    width: 100%;
-    padding: 20px 0 10px 0;;
-
-    /* hor-offset, ver-offset, blur, spread, color */
-    box-shadow: 0px 10px 20px 10px black;
-    font-size: 2vw;
+.tab1 {
+    padding: 30px 0 0 40px;
 }
 
-nav ul {
-    margin: auto;
-    list-style-type: none;
+.tab1 p {
+    padding-bottom: 5px;
 }
 
-nav li {
-    display: inline;
-    margin-right: 4vw;
+.tab2 {
+    padding: 0 0 10px 40px;
 }
 
-nav li a {
-    padding: 10px;
-    text-decoration: none;
-    color: white;
+.tab3 {
+    padding-left: 80px;
 }
 
-nav li a:hover {
-    border-radius: 50px;
-    color: black;
-    background-color: white;
+.list1 {
+    padding-left: 40px;
 }
 
-#content p {
-    text-align: center;
+.list1 p {
+    padding: 0 0 5px 0
 }
 
-#content article {
-    padding: 30px;
-    width: 600px;
-    margin: auto;
-    margin-bottom: 240px;
-
-    border-radius: 30px;
-    background: #585858;
-    box-shadow: 10px 10px 5px black;
+.list1 ul {
+    padding-left: 40px
 }
 
-#content article p {
-    margin-bottom: 5px;
-    text-align: justify;
-    line-height: 35px;
-}
-
-#content article ul {
-    padding-left: 20px;
+.list1 li, b{
+    font-size: 12px;
+    padding-bottom: 5px;
     word-spacing: 2px;
     letter-spacing: 2px;
-    text-align: justify;
-    font-size: 14px;
-    line-height: 24px;
 }
 
-#content article li ul {
-    padding-left: 50px;
+.list2 {
+    padding-top: 5px;
 }
 
-#content article a {
+img.one {
+    width: 450px;
+}
+
+img.two {
+    width: 900px;
+}
+
+a {
     text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-img {
-    border-radius: 30px;
-    width: 100%;
-}
-
-article#darksouls {
-    width: 800px;
-}
-
-#darksouls img {
-    width: 100%;
-}
-
-#content #deadlift p {
-    text-align: center;
+    color: #0645AD;
 }
 
 video {
-    /* border: 1px solid #009; */
-    width: 40%;
-    border-radius: 30px;
-}
-
-footer {
-    padding: 100px;
+    padding-bottom: 15px;
 }
