@@ -74,7 +74,7 @@ nav a:hover, #current, .block_nav a:hover {
 }
 
 article {
-    /* padding: 30px 0 30px 0; */
+    padding: 30px 0 30px 0;
     text-align: center;
     margin: auto;
     width: 250px;
@@ -147,4 +147,8 @@ footer {
 
 .block_nav li a {
     color: #bbb;
+}
+
+footer img {
+    float: left;
 }
