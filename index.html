@@ -3,12 +3,11 @@ File: index.html
 91.461 Assignment: Creating Your First Web Page
 Victor M Espaillat, UMass Lowell Computer Science, victor_espaillat@student.uml.edu
 
-Copyright (c) 2019 by Victor M. Espaillat. All rights reserved. May be freely
-copied or excerpted for educational purposes with credit to the author.
-Updated by VME on September 16, 2019
+This is my main webpage, it has a header with my name on it, a navigation bar,
+an about section, an interests section, and a footer.
 
-This is a webpage that talks about me and my interests. I attempted to
-coherently organize the content into divisions and subdivisions.
+Each article in the interests section has a thumbnail
+
 -->
 
 <!DOCTYPE html>
@@ -16,71 +15,57 @@ coherently organize the content into divisions and subdivisions.
     <head>
         <meta charset="utf-8">
         <title>Victor's website</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div id="wrapper">
-            <header>
-                <h1>Victor M Espaillat</h1>
-                <h2>CS Major / Strength Athlete</h2>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href="#">News</a></li>
-                    <li><a href="./assignments/index.html">Assignments</a></li>
-                    <li><a href="#">Projects</a></li>
-                </ul>
-            </nav>
-            <div id="main">
-                <h3>Things about me:</h3>
-                <article>
-                    <p>I like cacao. I eat it everyday with oatmeal.</p>
-                    <img src="images/cacao.jpg" class="one" alt="cacao">
-                </article>
-                <article>
-                    <p>I have a high-end gaming PC. It helps with school.</p>
-                    <img src="images/desktop.jpg" class="one" alt="desktop">
-                    <p>Specs:</p>
-                    <ul>
-                        <li><b>CPU:</b> Intel i7-7700K / 4 Cores, 8 Threads / 4.20GHz - 4.50GHz</li>
-                        <li><b>RAM:</b> Corsair Vengeance / 16GB / DDR4 / 3200MHz </li>
-                        <li><b>Motherboard:</b> ASUS ROG Maximus IX Code</li>
-                        <li><b>Storage:</b>
-                            <ul>
-                                <li>250GB SSD / Samsung 850 EVO</li>
-                                <li>1TB SSD / Samsung 850 EVO</li>
-                                <li>4TB HDD / Western Digital / 128MB Cache</li>
-                            </ul>
-                        </li>
-                        <li><b>Power supply:</b> 850 Watts / Corsair HX850i</li>
-                        <li><b>GPU:</b> ASUS ROG-STRIX-GTX 1080ti</li>
-                        <li><b>CPU Cooler:</b> Corsair H115i</li>
-                        <li><b>Case:</b> Corsair Obsidian 750D Full-Tower - Airflow Edition</li>
-                    </ul>
-                </article>
-                <article>
-                    <p>My favorite video game franchise is <i>Soulsbornekiro</i>,
-                    which means any action-RPG developed by
-                    <a href="https://www.fromsoftware.jp/ww/" target="_blank">
-                    FromSoftware</a>.</p>
-                    <img src="images/darksouls.jpg" class="two" alt="darksouls">
-                </article>
-                <article>
-                    <p>I like to push my limits.</p>
-                    <video width="400" height="700" controls>
-                        <source src="videos/deadlift_355x3.mp4" type="video/mp4">
-                    </video>
-                    <p>Conventional Deadlift:
-                    <br>355 lbs. × 3<br>September 7, 2019</p>
-                </article>
-            </div>
-            <footer>
-                Copyright &copy; 2019 Victor M. Espaillat
-                <br>
-                <a href="mailto:victor_espaillat@student.uml.edu">victor_espaillat@student.uml.edu</a>
-            </footer>
+        <header>
+            <h1>Victor.</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" id="current">home.</a></li>
+                <li><a href="assign.html">assigns.</a></li>
+                <li><a href="proj.html">projects.</a></li>
+            </ul>
+        </nav>
+        <div id="intro">
+            <p>Hi, my name is Victor M. Espaillat. I am a computer science
+            major at UMass Lowell, and I am also passionate about strength
+            training and nutrition.</p>
         </div>
+        <div id="interest">
+            <h2>interests.</h2>
+            <a href="#">
+                <article>
+                    <img src="media/images/cacao.jpg" alt="cacao">
+                    <p>Superfoods</p>
+                </article>
+            </a>
+            <a href="#">
+                <article>
+                    <img src="media/images/desktop.jpg" alt="desktop">
+                    <p>PC Gaming</p>
+                </article>
+            </a>
+            <a href="#">
+                <article>
+                    <img src="media/images/darksouls.jpg" alt="darksouls">
+                    <p><i>Soulsbornekiro</i></p>
+                </article>
+            </a>
+            <a href="#">
+                <article>
+                    <img src="media/images/deadlift.png" alt="deadlift">
+                    <p>Strength training
+                </article>
+            </a>
+        </div>
+        <footer>
+            Copyright &copy; 2019 Victor M. Espaillat
+            <br>
+            <a href="mailto:victor_espaillat@student.uml.edu">victor_espaillat@student.uml.edu</a>
+        </footer>
     </body>
 </html>
