@@ -74,7 +74,7 @@ nav a:hover, #current, .block_nav a:hover {
 }
 
 article {
-    padding: 30px 0 30px 0;
+    /* padding: 30px 0 30px 0; */
     text-align: center;
     margin: auto;
     width: 250px;
@@ -119,7 +119,7 @@ img {
     display: block;
     margin: auto;
     border-radius: 30px;
-    width: 100%;
+    width: 80%;
 }
 
 /* Changing links' colors and removing their underlined style. */
