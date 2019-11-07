@@ -4,19 +4,44 @@ File: index.html
 Victor M Espaillat, UMass Lowell Computer Science, victor_espaillat@student.uml.edu
 */
 
-var multiplier_start = 1;
-var multiplier_end = 5;
+
 var multiplicand_start = 1;
-var multiplicand_end = 5;
-var el = document.getElementById('table');
+var multiplicand_end = 4;
 
-var msg = '<p>';
+var multiplier_start = 3;
+var multiplier_end = 5;
 
-for (i = multiplier_start; i < multiplier_end; ++i) {
-    for (j = )
+var multiplicand = [];
+var multiplier = [];
 
+var i, j;
+
+for (i = multiplier_start; i <= multiplier_end; ++i) {
+    multiplier.push(i);
 }
 
-var msg += '</p>';
+for (i = multiplicand_start; i <= multiplicand_end; ++i) {
+    multiplicand.push(i);
+}
 
-// el.innerHTML = msg;
+console.log(multiplicand);
+console.log(multiplier);
+
+var el = document.getElementById('table');
+var msg = '<p>&emsp;&nbsp;';
+
+for (i = 0; i < multiplicand.length; ++i)
+    msg += multiplicand[i] + '&emsp;';
+msg += '<br>';
+
+for (i = 0; i < multiplier.length; ++i) {
+    msg += multiplier[i] + '&emsp;';
+    for (j = 0; j < multiplicand.length; ++j) {
+        msg += multiplier[i] * multiplicand[j] + '&emsp;';
+    }
+    msg += '<br>';
+}
+
+
+msg += '</p>';
+el.innerHTML = msg;
