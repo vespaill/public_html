@@ -1,4 +1,68 @@
+/*
+File: style.html
+91.461 Assignment: Creating an Interactive Dynamic Table
+Victor M Espaillat, UMass Lowell Computer Science, victor_espaillat@student.uml.edu
+
+This is a custom stylesheet for the Table's page.
+*/
+/******************************** Define fonts ********************************/
+@font-face {
+    font-family: "cmu_serif_italic_upright";
+    src: url("cmunui-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "cmu_typewriter";
+    src: url("cmuntt-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "cmu_typewriter_italic";
+    src: url("cmunit-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'cmu_serifroman';
+    src: url('cmunrm-webfont.woff') format('woff');
+}
+/******************************************************************************/
+
+body {
+    background: #202020;
+}
+
+form {
+    font-family: "cmu_serifroman";
+}
+
+h1 {
+    font-family: "cmu_serif_italic_upright";
+    border-color: #17A2B7;
+    font: 5px;
+}
+
 p {
-    font-family: Courier New, monospace;
-    font-size: 30px;
+    font-family: "cmu_typewriter";
+}
+
+.form-control {
+    background: gray;
+    font-family: "cmu_typewriter_italic";
+    color: white;
+    -webkit-transition: background 0.5s;
+    border: 0.7px solid white;
+}
+
+.form-control::placeholder {
+    color: white;
+}
+
+.form-control:focus {
+    box-shadow: 0px 0px 5px white;
+    background: white;
+    border: 0.7px solid white;
+}
+
+table {
+    font-family: "cmu_typewriter";
 }

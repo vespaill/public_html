@@ -140,13 +140,18 @@ footer {
     margin: auto;
 }
 
-.block_nav ul li {
+.block_nav ol li, .block_nav ul li {
     /* list-style-type: none; */
     padding: 10px 0 10px 0;
 }
 
 .block_nav li a {
-    color: #bbb;
+    color: white;
+}
+
+.block_nav ol {
+
+    color: gray;
 }
 
 footer img {

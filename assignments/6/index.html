@@ -7,15 +7,153 @@ Victor M Espaillat, UMass Lowell Computer Science, victor_espaillat@student.uml.
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
         <title>Interactive Dynamic Table</title>
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <h1>Interactive Dynamic Table</h1>
-        </header>
-        <div id = "table">asdasd</div>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- My custom styles -->
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+
+        <!-- My javascript code -->
         <script src="js/main.js"></script>
+    </head>
+    <body class="mx-5">
+        <div class="container text-light">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1 class="text-center pb-2 my-4 border-bottom border-info">
+                    Interactive Dynamic Table</h1>
+                </div>
+            </div>
+            <!-- Begin by creating a form that asks the user to enter four
+                 numbers. Format your form nicely using CSS and other 
+                 techniques. -->
+            <form>
+                <!------------------------------------------------------------->
+                <!---------------- Horizontal axis parameters ----------------->
+                <!------------------------------------------------------------->
+                <div class="form-row">
+                    <div class="col-md-4 offset-md-4"> 
+                        <label class="text-justify">
+                            Enter horizontal axis bounding numbers. Order does 
+                            not matter.
+                        </label>
+                    </div>
+                </div>
+                <!-- Pair of input text-areas for horizontal axis range -->
+                <div class="form-row">
+                    <div class="col-md-2 offset-md-4 input-group-sm"> 
+                        <input class="form-control" type="text" 
+                        id="input1" placeholder="Enter integer">
+                    </div>
+                    <div class="col-md-2 input-group-sm"> 
+                        <input class="form-control" type="text" 
+                        id="input2" placeholder="Enter integer">
+                    </div>
+                </div>
+                <!-- Hidden alerts for individual inputs -->
+                <div class="form-row text-danger">
+                    <div class="col-md-2 offset-md-4 input-group-sm">
+                        <p class="text-center" id="msg1"><br></p>
+                    </div>
+                    <div class="col-md-2 input-group-sm"> 
+                        <p class="text-center" id="msg2"><br></p>
+                    </div>
+                    <div class="col-md-6 offset-md-3"> 
+                        <p class="border-bottom border-info"></p>
+                    </div>
+                </div>
+                <!------------------------------------------------------------->
+                <!----------------- Vertical axis parameters ------------------>
+                <!------------------------------------------------------------->
+                <div class="form-row">
+                    <div class="col-md-4 offset-md-4"> 
+                        <label value="1" class="text-justify">
+                            Enter vertical axis bounding numbers. Order does 
+                            not matter.
+                        </label>
+                    </div>
+                </div>
+                <!-- Pair of input text-areas for vertical axis range -->
+                <div class="form-row">
+                    <div class="col-md-2 offset-md-4 input-group-sm"> 
+                        <input class="form-control" type="text" 
+                        id="input3" placeholder="Enter integer">
+                    </div>
+                    <div class="col-md-2 input-group-sm"> 
+                        <input class="form-control" type="text" 
+                        id="input4" placeholder="Enter integer">
+                    </div>
+                </div>
+                <!-- Hidden alerts for individual inputs -->
+                <div class="form-row text-danger">
+                    <div class="col-md-2 offset-md-4 input-group-sm">
+                        <p class="text-center" id="msg3"><br></p>
+                    </div>
+                    <div class="col-md-2 input-group-sm"> 
+                        <p class="text-center" id="msg4"><br></p>
+                    </div>
+                </div>
+                <!------------------------------------------------------------->
+                <!---------------------- Submit Button ------------------------>
+                <!------------------------------------------------------------->
+                <div class="form-row">
+                    <button class="col-md-4 offset-md-4 mb-5 btn-sm btn-info" 
+                    type="button" onclick="generateTable(4)">
+                            Submit
+                    </button>
+                </div>
+            </form>
+
+            <!-- Multiplication table -->
+            <div class="row justify-content-center text-right">
+                <div class="col-auto">
+                    <!-- <table class="table-responsive bg-success table table-bordered " id="mult-tab"> -->
+                    <table class="bg-success table table-bordered " id="mult-tab">
+                        <!-- <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>2</td>
+                                <td>4</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>3</td>
+                                <td>6</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>4</td>
+                                <td>8</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody> -->
+                    </table>
+                </div>
+            </div>
+
+            <p class="border-bottom border-info"></p>
+
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
