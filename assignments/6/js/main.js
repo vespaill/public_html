@@ -1,39 +1,39 @@
-/******************************************************************************
- **    File: main.js                                                         **
- **                                                                          **
- **    91.461 Assignment: Generating an Interactive Dynamic Table            **
- **                                                                          **
- **    Victor M Espaillat, UMass Lowell Computer Science,                    **
- **    victor_espaillat@student.uml.edu                                      **
- ******************************************************************************/
+/*******************************************************************************
+**    File: main.js                                                           **
+**                                                                            **
+**    91.461 Assignment: Generating an Interactive Dynamic Table              **
+**                                                                            **
+**    Victor M Espaillat, UMass Lowell Computer Science,                      **
+**    victor_espaillat@student.uml.edu                                        **
+*******************************************************************************/
 
 var inputs = [];       // multiplier1, multiplier2, multiplicand1, multiplicand2
 var plier_range = [];  // Multipliers, top row of table.
 var cand_range = [];   // Multiplicands, leftmost column of table.
 
-/******************************************************************************
- **    Attempts to retrive a given number of inputs and store them in        **
- **    a global inputs array.                                                **
- **                                                                          **
- **    Then, determines whether the given inputs are valid by returning      **
- **    true or false.                                                        **
- **                                                                          **
- **    Assumes that the inputs come from elements with IDs of "input#"       **
- **    where # is an integer between 1 and num_inputs.                       **
- ******************************************************************************/
+/*******************************************************************************
+**    Attempts to retrive a given number of inputs and store them in          **
+**    a global inputs array.                                                  **
+**                                                                            **
+**    Then, determines whether the given inputs are valid by returning        **
+**    true or false.                                                          **
+**                                                                            **
+**    Assumes that the inputs come from elements with IDs of "input#"         **
+**    where # is an integer between 1 and num_inputs.                         **
+*******************************************************************************/
 function validate(num_inputs) {
     console.log("validate(num_inputs = " + num_inputs + ");");
-    /************************* Resetting variables ****************************/
+    /************************* Resetting variables*****************************/
     inputs = [];
     var valid = true;
-    /************************ Retrieving form data ****************************/
+    /************************ Retrieving form data*****************************/
     var i, hidden_el;
     for (i = 0; i < num_inputs; i += 2) {
         /* Retrieve the values from i-th and (i+1)-th input elements and store 
            them into an array. */
         inputs.push(parseInt(document.getElementById("input"+(i+1)).value, 10));
         inputs.push(parseInt(document.getElementById("input"+(i+2)).value, 10));
-        /*********************** Validing form data ***************************/
+        /*********************** Validing form data****************************/
         /* There will only be one message for every two input elements.
            Retrieve the particular hidden element for this pair of inputs. */
         hidden_el = document.getElementById("hidden_error_msg" + ((i/2)+1));
@@ -52,17 +52,17 @@ function validate(num_inputs) {
     return valid;
 }
 
-/******************************************************************************
- **    If the numbers read from a form are valid:                            **
- **                                                                          **
- **        Uses them to generate a multiplication table. Displays the        **
- **        table at a desired location, as indicated by an element ID.       **
- ******************************************************************************/
+/*******************************************************************************
+**    If the numbers read from a form are valid:                              **
+**                                                                            **
+**    Uses them to generate a multiplication table. Displays the              **
+**    table at a desired location, as indicated by an element ID.             **
+*******************************************************************************/
 function generateTable(num_inputs) {
-    /************************* Resetting variables ****************************/
+    /************************* Resetting variables*****************************/
     plier_range = [];
     cand_range = [];
-    /******************* Making sure the inputs are valid *********************/
+    /******************* Making sure the inputs are valid**********************/
     if (!validate(num_inputs)) {
         console.log("Failed validation :(");
         return;

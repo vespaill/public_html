@@ -1,37 +1,16 @@
-/******************************************************************************
- **    File: style.css                                                       **
- **                                                                          **
- **    91.461 Assignment: Styling an Interactive Dynamic Table               **
- **                                                                          **
- **    Victor M Espaillat, UMass Lowell Computer Science,                    **
- **    victor_espaillat@student.uml.edu                                      **
- ******************************************************************************/
+/*******************************************************************************
+**    File: style.css                                                         **
+**                                                                            **
+**    91.461 Assignment: Styling an Interactive Dynamic Table                 **
+**                                                                            **
+**    Victor M Espaillat, UMass Lowell Computer Science,                      **
+**    victor_espaillat@student.uml.edu                                        **
+*******************************************************************************/
 
-/******************************************************************************
- **                    Importing some elegant LaTeX fonts                    **
- ******************************************************************************/
-@font-face {
-    font-family: "cmu_serif_italic_upright";
-    src: url("../fonts/cmunui-webfont.woff") format("woff");
-}
 
-@font-face {
-    font-family: "cmu_typewriter";
-    src: url("../fonts/cmuntt-webfont.woff") format("woff");
-}
-
-@font-face {
-    font-family: "cmu_typewriter_italic";
-    src: url("../fonts/cmunit-webfont.woff") format("woff");
-}
-
-@font-face {
-    font-family: "cmu_serifroman";
-    src: url("../fonts/cmunrm-webfont.woff") format("woff");
-}
-/******************************************************************************
- **                                 General                                  **
- ******************************************************************************/
+/*******************************************************************************
+**                                 General                                    **
+*******************************************************************************/
 body {
     background: #202020;
 }
@@ -52,9 +31,9 @@ mark {
     background-color: #d9534f;
     color: white; 
 }
-/******************************************************************************
- **                                  Forms                                   **
- ******************************************************************************/
+/*******************************************************************************
+**                                  Forms                                     **
+*******************************************************************************/
 label {
     font-family: "cmu_serifroman";
 }
@@ -94,9 +73,9 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none; 
     margin: 0; 
 }
-/******************************************************************************
- **                                  Tables                                  **
- ******************************************************************************/
+/*******************************************************************************
+**                                  Tables                                    **
+*******************************************************************************/
 table {
     font-family: "cmu_serif_italic_upright";
     font-weight: bold;

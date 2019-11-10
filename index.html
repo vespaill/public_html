@@ -1,23 +1,23 @@
-<!--
-File: index.html
-91.461 Assignment: Creating Your First Web Page
-Victor M Espaillat, UMass Lowell Computer Science, victor_espaillat@student.uml.edu
-
-This is my main webpage, it has a header with my name on it, a navigation bar,
-an about section, an interests section, and a footer.
-
-Each article in the interests section has a thumbnail
-
--->
+<!------------------------------------------------------------------------------
+--    File: index.html                                                        --
+--                                                                            --
+--    91.461 Assignment: Creating Your First Web Page                         --
+--    Victor M Espaillat, UMass Lowell Computer Science,                      --
+--    victor_espaillat@student.uml.edu                                        --
+--                                                                            --
+--    This is my main webpage, it has a header with my name on it, a          --
+--    navigation bar, an about section, an interests section, and a footer.   --
+--    Each article in the interests section has a thumbnail                   --
+------------------------------------------------------------------------------->
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Victor's website</title>
+        <link rel="stylesheet" href="fonts/font_styles.css">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -30,12 +30,12 @@ Each article in the interests section has a thumbnail
                 <li><a href="proj.html">projects.</a></li>
             </ul>
         </nav>
-        <div id="intro">
-            <p>Hi, my name is Victor M. Espaillat. I am a computer science
+        <div class="intro">
+            <p>Greetings, my name is Victor M. Espaillat. I am a computer science
             major at UMass Lowell, and I am also passionate about strength
             training and nutrition.</p>
         </div>
-        <div id="interest">
+        <div id="interests">
             <h2>interests.</h2>
             <a href="#">
                 <article>
@@ -52,13 +52,13 @@ Each article in the interests section has a thumbnail
             <a href="#">
                 <article>
                     <img src="media/images/darksouls.jpg" alt="darksouls">
-                    <p><i>Soulsbornekiro</i></p>
+                    <p>Soulsbornekiro</p>
                 </article>
             </a>
             <a href="#">
                 <article>
                     <img src="media/images/deadlift.png" alt="deadlift">
-                    <p>Strength training
+                    <p>Strength Training
                 </article>
             </a>
         </div>
