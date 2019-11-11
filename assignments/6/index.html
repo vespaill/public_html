@@ -32,7 +32,7 @@
         <div class="container text-light">
             <!---------------------------- Header ----------------------------->
             <div class="row">
-                <div class="col-sm-8 offset-sm-2">
+                <div class="col-md-8 offset-md-2">
                     <h1 class="text-center pb-2 my-4 border-bottom border-info">
                     Interactive Dynamic Table</h1>
                 </div>
@@ -44,7 +44,7 @@
                 <!--               Horizontal axis parameters                -->
                 <!------------------------------------------------------------->
                 <div class="form-row">
-                    <div class="col-sm-4 offset-sm-4"> 
+                    <div class="col-6 offset-3 col-md-4 offset-md-4"> 
                         <label>
                             Enter <u>horizontal</u> axis bounding numbers. 
                             Order does not matter.
@@ -53,32 +53,33 @@
                 </div>
                 <!-------------- First pair of input text areas --------------->
                 <div class="form-row">
-                    <div class="col-sm-2 offset-sm-4 mb-2 input-group-sm"> 
+                    <div class="col-6 offset-3 col-md-2 offset-md-4 mb-2 
+                    input-group-sm"> 
                         <input class="form-control text-center" type="number" 
                         id="input1" placeholder="Enter number" 
-                        autocomplete="off" onclick="this.select()" required>
+                        autocomplete="off" required>
                     </div>
-                    <div class="col-sm-2 input-group-sm"> 
+                    <div class="col-6 offset-3 col-md-2 offset-md-0 input-group-sm"> 
                         <input class="form-control text-center" type="number" 
                         id="input2" placeholder="Enter number"  
-                        autocomplete="off" onclick="this.select()" required>
+                        autocomplete="off" required>
                     </div>
                 </div>
                 <!------------------- First hidden element -------------------->
                 <div class="form-row">
                     <div class="col pt-1 text-center"> 
-                        <p id="hidden_error_msg1"><br></p>
+                        <p id="hidden_error1"><br></p>
                     </div>
                 </div>
                 <!------------------------------------------------------------->
                 <!--                Vertical axis parameters                 -->
                 <!------------------------------------------------------------->
-                <div class="form-row ">
-                    <div class="col-sm-6 offset-sm-3 border-top border-info 
+                <div class="form-row">
+                    <div class="col-md-6 offset-md-3 border-top border-info 
                     pt-4"></div>
                 </div>
                 <div class="form-row">
-                    <div class="col-sm-4 offset-sm-4"> 
+                    <div class="col-6 offset-3 col-md-4 offset-md-4"> 
                         <label>
                             Enter <u>vertical</u> axis bounding numbers. 
                             Order does not matter.
@@ -87,29 +88,30 @@
                 </div>
                 <!------------- Second pair of input text areas --------------->
                 <div class="form-row">
-                    <div class="col-sm-2 offset-sm-4 mb-2 
+                    <div class="col-6 offset-3 col-md-2 offset-md-4 mb-2 
                     input-group-sm"> 
                         <input class="form-control text-center" type="number" 
                         id="input3" placeholder="Enter number" 
-                        autocomplete="off" onclick="this.select()" required>
+                        autocomplete="off" required>
                     </div>
-                    <div class="col-sm-2 input-group-sm mb-2"> 
+                    <div class="col-6 offset-3 col-md-2 offset-md-0 
+                    input-group-sm mb-2"> 
                         <input class="form-control text-center" type="number" 
                         id="input4" placeholder="Enter number" 
-                        autocomplete="off" onclick="this.select()" required>
+                        autocomplete="off" required>
                     </div>
                 </div>
                 <!------------------ Second hidden element -------------------->
                 <div class="form-row">
                     <div class="col pt-1 text-center"> 
-                        <p id="hidden_error_msg2"><br></p>
+                        <p id="hidden_error2"><br></p>
                     </div>
                 </div>
                 <!------------------------------------------------------------->
                 <!--                      Submit Button                      -->
                 <!------------------------------------------------------------->
                 <div class="form-row">
-                    <button class="col-sm-4 offset-sm-4 mb-5 
+                    <button class="col-6 offset-3 col-md-4 offset-md-4 mb-5 
                     btn-sm btn-info" type="button" onclick="generateTable(4)">
                             Generate Table
                     </button>
@@ -124,7 +126,10 @@
                     table-responsive text-center" id="mult-table"></table>
                 </div>
             </div>
-            <p class="border-bottom border-info"></p>
+            <div class="row">
+                <div class="col-md-8 offset-md-2 border-bottom border-info">
+                </div>
+            </div>
         </div>
         <!----------------- JavaScript required for Bootstrap ----------------->
         <!---------- jQuery first, then Popper.js, then Bootstrap JS ---------->
