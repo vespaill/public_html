@@ -6,10 +6,8 @@
 --    victor_espaillat@student.uml.edu                                        --
 --                                                                            --
 --    This is my main webpage, it has a header with my name on it, a          --
---    navigation bar, an about section, an interests section, and a footer.   --
---    Each article in the interests section has a thumbnail                   --
+--    navigation bar, a content section and a footer.                         --
 ------------------------------------------------------------------------------->
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,69 +15,25 @@
         <title>Victor's website</title>
         <link rel="stylesheet" href="fonts/font_styles.css">
         <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <header>
-            <h1>Victor.</h1>
-        </header>
-        <nav class="border-bottom">
-            <ul>
-                <li><a href="#" id="current">home.</a></li>
-                <li><a href="gui1.html">class.</a></li>
-                <li><a href="proj.html">projects.</a></li>
-            </ul>
-        </nav>
-        <div class="intro border-bottom">
-            <p>Greetings, my name is Victor M. Espaillat. I am a computer science
-            major at UMass Lowell, and I am also passionate about strength
-            training and nutrition.</p>
-        </div>
-        <div id="interests">
-            <h2>interests.</h2>
-            <a href="#">
-                <article>
-                    <img src="media/images/cacao.jpg" alt="cacao">
-                    <p>Superfoods</p>
-                </article>
-            </a>
-            <a href="#">
-                <article>
-                    <img src="media/images/desktop.jpg" alt="desktop">
-                    <p>PC Gaming</p>
-                </article>
-            </a>
-            <a href="#">
-                <article>
-                    <img src="media/images/darksouls.jpg" alt="darksouls">
-                    <p>Soulsbornekiro</p>
-                </article>
-            </a>
-            <a href="#">
-                <article>
-                    <img src="media/images/deadlift.png" alt="deadlift">
-                    <p>Strength Training
-                </article>
-            </a>
-        </div>
+    <body id="page">
+        <h1 class="header">Victor.</h1>
+
+        <ul id="navbar" class="border-bottom">
+            <li><a href="#" class="current">home.</a></li>
+            <li><a href="gui1.html">class.</a></li>
+            <li><a href="proj.html">projects.</a></li>
+        </ul>
+
+        <div class="intro border-bottom"></div>
+
+        <div id="main"></div>
+
         <footer>
             Copyright &copy; 2019 Victor M. Espaillat
             <br>
             <a href="mailto:victor_espaillat@student.uml.edu">victor_espaillat@student.uml.edu</a>
-            <p>
-                <a href="http://jigsaw.w3.org/css-validator/check/referer">
-                    <img style="border:0;width:88px;height:31px"
-                        src="http://jigsaw.w3.org/css-validator/images/vcss"
-                        alt="Valid CSS!" />
-                </a>
-            </p>
-            <p>
-            <a href="http://jigsaw.w3.org/css-validator/check/referer">
-                <img style="border:0;width:88px;height:31px"
-                    src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-                    alt="Valid CSS!" />
-                </a>
-            </p>
         </footer>
     </body>
+    <script type="text/javascript" src=js/main.js></script>
 </html>

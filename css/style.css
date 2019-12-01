@@ -10,6 +10,8 @@
 /*******************************************************************************
 **                                 General                                    **
 *******************************************************************************/
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+
 /* Removing padding from all elements. */
 * {
     padding: 0;
@@ -48,11 +50,11 @@ h1 {
     transition: background-color 1s, box-shadow 1s;
 }
 
-h1:first-letter {
+.header:first-letter {
     font-family: "Courgette";
 }
 
-h1:hover {
+.header:hover {
     padding: 10px 5px 0 20px;
     box-shadow: 0 0 25px 50px #F0AD4E;
     background-color: #F0AD4E;
@@ -76,7 +78,7 @@ a, a * {
     font-family: "cmu_serif_italic_upright";
 }
 
- a *:hover, a:hover, #current {
+ a *:hover, a:hover, .current {
     color: #F0AD4E;
 }
 
@@ -86,19 +88,21 @@ i {
 /*******************************************************************************
 **                             Navigation bar                                 **
 *******************************************************************************/
-nav {
+#navbar {
     font-size: 32px;
     clear: right;
+    margin: 0;
+    padding-bottom: 30px;
 }
 
 /* Removing the bullet points and letting all the list elements be on the same
    line*/
-nav ul li {
+#navbar li {
     list-style-type: none;
     display: inline;
 }
 
-nav li a {
+#navbar li a {
     padding: 16px;
 }
 /*******************************************************************************
@@ -121,7 +125,6 @@ nav li a {
 }
 
 .intro:first-letter {
-
     font-size: 200%;
     /*font-weight: 900;*/
     font-family: "Liberate Wide Normal";
@@ -130,6 +133,9 @@ nav li a {
 #interests {
     display: grid;
     grid-template: auto / 1fr 1fr;
+}
+#interests a:hover {
+    cursor: context-menu;
 }
 
 article {
