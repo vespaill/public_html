@@ -17,128 +17,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1,
         shrink-to-fit=no">
 
-        <!------------------------- Bootstrap CSS ----------------------------->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
         <!------------------------- My custom styles -------------------------->
         <link rel="stylesheet" href="../../fonts/font_styles.css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
 
         <!------------------------------ JQuery  ------------------------------>
         <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/additional-methods.min.js"></script>
 
-
-    </head>
-    <body class="mx-2">
-        <div class="container text-light">
-            <!---------------------------- Header ----------------------------->
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <h1 class="text-center pb-2 my-4 border-bottom border-info">
-                    Interactive Dynamic Table</h1>
-                </div>
-            </div>
-            <!-- Form that asks the user to enter four numbers. Formatted nicely
-                 using CSS and Bootstrap -->
-            <form>
-                <!------------------------------------------------------------->
-                <!--               Horizontal axis parameters                -->
-                <!------------------------------------------------------------->
-                <div class="form-row">
-                    <div class="col-6 offset-3 col-md-4 offset-md-4">
-                        <label>
-                            Enter <u>horizontal</u> axis bounding numbers.
-                            Order does not matter.
-                        </label>
-                    </div>
-                </div>
-                <!-------------- First pair of input text areas --------------->
-                <div class="form-row">
-                    <div class="col-6 offset-3 col-md-2 offset-md-4 mb-2
-                    input-group-sm">
-                        <input class="form-control text-center" type="number"
-                        id="input1" placeholder="Enter number"
-                        autocomplete="off" required>
-                    </div>
-                    <div class="col-6 offset-3 col-md-2 offset-md-0 input-group-sm">
-                        <input class="form-control text-center" type="number"
-                        id="input2" placeholder="Enter number"
-                        autocomplete="off" required>
-                    </div>
-                </div>
-                <!------------------- First hidden element -------------------->
-                <div class="form-row">
-                    <div class="col pt-1 text-center">
-                        <p id="hidden_error1"><br></p>
-                    </div>
-                </div>
-                <!------------------------------------------------------------->
-                <!--                Vertical axis parameters                 -->
-                <!------------------------------------------------------------->
-                <div class="form-row">
-                    <div class="col-md-6 offset-md-3 border-top border-info
-                    pt-4"></div>
-                </div>
-                <div class="form-row">
-                    <div class="col-6 offset-3 col-md-4 offset-md-4">
-                        <label>
-                            Enter <u>vertical</u> axis bounding numbers.
-                            Order does not matter.
-                        </label>
-                    </div>
-                </div>
-                <!------------- Second pair of input text areas --------------->
-                <div class="form-row">
-                    <div class="col-6 offset-3 col-md-2 offset-md-4 mb-2
-                    input-group-sm">
-                        <input class="form-control text-center" type="number"
-                        id="input3" placeholder="Enter number"
-                        autocomplete="off" required>
-                    </div>
-                    <div class="col-6 offset-3 col-md-2 offset-md-0
-                    input-group-sm mb-2">
-                        <input class="form-control text-center" type="number"
-                        id="input4" placeholder="Enter number"
-                        autocomplete="off" required>
-                    </div>
-                </div>
-                <!------------------ Second hidden element -------------------->
-                <div class="form-row">
-                    <div class="col pt-1 text-center">
-                        <p id="hidden_error2"><br></p>
-                    </div>
-                </div>
-                <!------------------------------------------------------------->
-                <!--                      Submit Button                      -->
-                <!------------------------------------------------------------->
-                <div class="form-row">
-                    <button id="submit-btn" class="col-6 offset-3 col-md-4 offset-md-4 mb-5
-                    btn-sm btn-info" type="button">
-                            Generate Table
-                    </button>
-                </div>
-            </form>
-            <!----------------------------------------------------------------->
-            <!--                    Multiplication table                     -->
-            <!----------------------------------------------------------------->
-            <div class="row justify-content-center mb-4">
-                <div class="col-auto">
-                    <table class="table table-fixed table-borderless
-                    table-responsive text-center" id="mult-table"></table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 offset-md-2 border-bottom border-info">
-                </div>
-            </div>
-        </div>
         <!------------------------- My javascript code ------------------------>
         <script src="js/main.js"></script>
 
-        <!----------------- JavaScript required for Bootstrap ----------------->
-        <!---------- jQuery first, then Popper.js, then Bootstrap JS ---------->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>Interactive Dynamic Table</h1>
+        <hr>
+        <form id="group-form">
+            <label>Enter <u>horizontal</u> axis bounding numbers. Order does not matter.</label><br>
+            <input id="input1" class="form-control" placeholder="Enter number"
+            autocomplete="off" value=1 name="num_field"
+            required><br>
+            <input id="input2" class="form-control" placeholder="Enter number"
+            autocomplete="off" value=2 name="num_field"
+            required><br><br>
+
+            <label>Enter <u>vertical</u> axis bounding numbers. Order does not matter.</label><br>
+            <input id="input3" class="form-control" placeholder="Enter number"
+            autocomplete="off" value=3 name="num_field"
+            required><br>
+            <input id="input4" class="form-control" placeholder="Enter number"
+            autocomplete="off" value=4 name="num_field"
+            required><br>
+
+            <button id="submit-btn" type="button">Generate Table</button>
+        </form>
+        <table id="mult-table"></table>
     </body>
 </html>

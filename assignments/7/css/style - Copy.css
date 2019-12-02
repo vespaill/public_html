@@ -14,41 +14,27 @@
 *******************************************************************************/
 body {
     background: #202020;
-    color: white;
 }
 
 h1 {
     font-family: "cmu_serif_italic_upright";
     border-color: #17A2B7;
     font-size: 32px;
-    text-align: center;
 }
 
 p, button {
     font-family: "cmu_typewriter";
 }
 
-.error {
-    /*margin-left: 1em;*/
+mark {
     font-size: 12px;
-    /*border-radius: 10px;*/
+    border-radius: 10px;
     background-color: #d9534f;
     color: white;
-    font-family: "cmu_typewriter";
-}
-
-.border-bottom {
-    border: 1px solid gray;
 }
 /*******************************************************************************
 **                                  Forms                                     **
 *******************************************************************************/
-
-#group-form {
-    width: 50%;
-    margin: auto;
-}
-
 label {
     font-family: "cmu_serifroman";
 }
@@ -58,9 +44,7 @@ label {
     color: white;
     background-color: gray;
     transition: background 0.5s;
-    text-align: center;
     border: 0.7px solid white;
-    margin-bottom: 1em;
 }
 
 .form-control::placeholder {
@@ -76,12 +60,12 @@ label {
     color: black;
 }
 
-/*.form-control:valid {
+.form-control:valid {
     background-color: white;
     color: black;
     transition: border 0.5s;
     border: solid 3px #5cb85c;
-}*/
+}
 
 /* Turning off number input spinners. Credit goes to Chris Coyier. Taken from:
    https://css-tricks.com/snippets/css/turn-off-number-input-spinners/ */
