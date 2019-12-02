@@ -17,6 +17,23 @@
     padding: 0;
 }
 
+.text-indent {
+    text-indent: 2.0em;
+}
+
+.center {
+    text-align: center;
+}
+
+.royalBlueBold {
+    color: #6495ED;
+    font-weight: bold;
+}
+
+.no-cursor-change a:hover {
+    cursor: context-menu;
+}
+
 /* I"m using auto margins on the left and right in order to center the body.
    I have increased letter spacing in the body and h1 in an effort to make
    the text more readable. */

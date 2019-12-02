@@ -1,0 +1,78 @@
+<!--
+File: index.html
+91.461 Assignment: Creating Your First Web Page
+Victor M Espaillat, UMass Lowell Computer Science, victor_espaillat@student.uml.edu
+
+Copyright (c) 2019 by Victor M. Espaillat. All rights reserved. May be freely
+copied or excerpted for educational purposes with credit to the author.
+Updated by VME on September 16, 2019
+
+This is a webpage that talks about me and my interests. I attempted to
+coherently organize the content into divisions and subdivisions.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Victor's website</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Victor M Espaillat</h1>
+            <h2>CS Major / Strength Athlete</h2>
+        </div>
+
+        <div class="content">
+            <p>Things about me:</p>
+
+            <div class="tab1">
+                <p>I love cacao,</p>
+                <img src="images/cacao.jpg" class="one" alt="cacao">
+            </div>
+            <div class="tab1">
+                <p>I have a pretty nice setup,</p>
+                <img src="images/desktop.jpg" class="one" alt="desktop">
+            </div>
+            <div class="list1">
+                <p>Specs:</p>
+                <ul>
+                    <li><b>CPU:</b> Intel i7-7700K / 4 Cores, 8 Threads / 4.20GHz - 4.50GHz</li>
+                    <li><b>RAM:</b> Corsair Vengeance / 16GB / DDR4 / 3200MHz </li>
+                    <li><b>Motherboard:</b> ASUS ROG Maximus IX Code</li>
+                    <li><b>Storage:</b>
+                        <div class="list2">
+                            <ul>
+                                <li>250GB SSD / Samsung 850 EVO</li>
+                                <li>1TB SSD / Samsung 850 EVO</li>
+                                <li>4TB HDD / Western Digital / 128MB Cache</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><b>Power supply:</b> 850 Watts / Corsair HX850i</li>
+                    <li><b>GPU:</b> ASUS ROG-STRIX-GTX 1080ti</li>
+                    <li><b>CPU Cooler:</b> Corsair H115i</li>
+                    <li><b>Case:</b> Corsair Obsidian 750D Full-Tower - Airflow Edition</li>
+                </ul>
+            </div>
+            <div class="tab1">
+                <p>My favorite video game franchise is <i>Soulsbornekiro</i>?
+                <br>In other words, any action-RPG made by
+                <a href="https://www.fromsoftware.jp/ww/" target="_blank">
+                FromSoftware</a>,</p>
+                <img src="images/darksouls.jpg" class="two" alt="darksouls">
+            </div>
+            <div class="tab1">
+                <p>and I like to train hard.</p>
+                <video width="400" height="700" controls>
+                    <source src="videos/deadlift_355x3.mp4" type="video/mp4">
+                </video>
+                <p>Conventional Deadlift:
+                <br>355 lbs. × 3<br>September 7, 2019</p>
+            </div>
+        </div>
+    </body>
+</html>
