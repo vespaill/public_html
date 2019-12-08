@@ -28,36 +28,79 @@ p, button {
     font-family: "cmu_typewriter";
 }
 
+button {
+    border-radius: 3px;
+    padding: 5px;
+}
+
 .error {
-    /*margin-left: 1em;*/
+    display: block;
+    margin-left: 1em;
     font-size: 12px;
-    /*border-radius: 10px;*/
+    border-radius: 10px;
     background-color: #d9534f;
     color: white;
     font-family: "cmu_typewriter";
+    padding: 0 10px;
+    display: table;
+    margin: 0 auto 2em auto;
+}
+
+.border-bottom {
+    border-bottom: 1px solid gray;
 }
 
 /*******************************************************************************
 **                                  Forms                                     **
 *******************************************************************************/
+form {
+    text-align: center;
+}
 
-#group-form {
-    width: 50%;
+fieldset {
+    width: 60%;
     margin: auto;
+    border: none;
+    margin-bottom: 1em;
+}
+
+.form-group {
+    margin-bottom: 1em;
 }
 
 label {
+    display: block;
     font-family: "cmu_serifroman";
+    margin-bottom: 1ex;
+}
+
+input {
+    border-radius: 3px;
+    display: block;
+    font-family: "cmu_typewriter_italic";
+    text-align: center;
+    margin-bottom: 1em;
+    color: white;
+    border: 0.7px solid white;
+    margin: 0 auto 1em auto;
 }
 
 .form-control {
-    font-family: "cmu_typewriter_italic";
-    color: white;
     background-color: gray;
     transition: background 0.5s;
-    text-align: center;
-    border: 0.7px solid white;
-    margin-bottom: 1em;
+}
+
+.input-error {
+    background-color: #d9534f;
+    transition: background 0.5s;
+}
+
+.input-valid {
+    color: black;
+    border: 2px solid #5cb85c;
+    background-color: white;
+    transition: background 0.5s, border 0.5s;
+
 }
 
 .form-control::placeholder {
@@ -73,20 +116,6 @@ label {
     color: black;
 }
 
-/*.form-control:valid {
-    background-color: white;
-    color: black;
-    transition: border 0.5s;
-    border: solid 3px #5cb85c;
-}*/
-
-/* Turning off number input spinners. Credit goes to Chris Coyier. Taken from:
-   https://css-tricks.com/snippets/css/turn-off-number-input-spinners/ */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
 /*******************************************************************************
 **                                  Tables                                    **
 *******************************************************************************/
@@ -94,13 +123,21 @@ table {
     font-family: "cmu_serif_italic_upright";
     font-weight: bold;
     border-radius: 15px;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+#tabDiv {
+    margin: auto;
+    opacity: 0;
+    padding-left: 500px;
 }
 
 /* I don't want the curse to change into the "text" type cursor when hovering
    over table text. I want it to always be the default "context-menu" cursor. */
 th, td {
     cursor: context-menu;
-
+    text-align: center;
     /* Turn the cells into perfect squares. */
     width: 50px;
     height: 50px;
@@ -115,6 +152,7 @@ td {
     background-color: #DCDCDC;
     /* Fade back to default color when HOVER is off. */
     transition: background-color 0.3s;
+    color: black;
 }
 
 /*  Selects all <th> elements where the parent is a <tr> element. */
@@ -139,4 +177,16 @@ tr:nth-child(odd) td:nth-child(even):not(:hover) {
 tr:nth-child(1) th:nth-child(2),
 tr:nth-child(2) th:nth-child(1) {
     border-top-left-radius: 15px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+tr:last-child th {
+    border-bottom-left-radius: 15px;
 }

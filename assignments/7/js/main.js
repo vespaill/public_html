@@ -14,28 +14,40 @@ var debugging = true;
    method is run. */
 $(document).ready(function() {
 
-    jQuery.validator.setDefaults({
-        success:  'valid'
-    });
+    // Initialize input fields.
+    var i = 0,
+        vals = [5,1,4,2];
+    $('input').each(function() {
+        $(this).val(vals[i]);
+        i++;
+    })
 
-    var $form = $('#form-group');
-
+    // Set up form validation
+    $form = $('form');
     $form.validate({
-        rules: {
-            num_field: {
-                required: true,
-                range: [-50, 50]
-            }
+        highlight: function(element) {
+            // $(element).fadeOut().fadeIn();
+            $(element).removeClass('input-valid').addClass('input-error');
         },
 
-        submitHandler: function(form) {
-            generateTable();
-        },
-
-        invalidHandler: function(form) {
-            $('#mult-table').empty();
+        unhighlight: function(element) {
+            $(element).removeClass('input-error').addClass('input-valid');
         }
     });
+
+    // Add these rules to each input.
+    $('input').each(function() {
+        $(this).rules('add', {
+            required: true,
+            range: [-50,50]
+        });
+    });
+
+    $('button').on('click', function(e) {
+        e.preventDefault();
+        if ($form.valid())
+            generateTable();
+    })
 });
 
 function generateTable() {
@@ -48,13 +60,23 @@ function generateTable() {
         arr_valid_inputs.push(  parseInt( $(this).val(), 10 )  );
     });
 
+    for (i=0; i < arr_valid_inputs.length; ++i)
+        console.log(arr_valid_inputs[i]);
+
     // Sort pairs
     arr_valid_inputs = sort_pairs(arr_valid_inputs);
 
     /* Store a reference of the table object inside a variable since it will be
        used often. */
     var $table = $('#mult-table');
-    $table.empty();             // Clear the table
+    var $tabDiv = $table.parent();
+
+    $table.empty()
+
+    $tabDiv.css({
+        'opacity': '0.0',
+        'padding-left': '500px'
+    });
 
     var $row = $('<tr>');       // Create an empty table row element
     $row.append('<th>');        // Append an empty table header element
@@ -80,6 +102,10 @@ function generateTable() {
         $table.append($row);    // Append row to table
 
     }
+    $tabDiv.stop(true).animate({
+        opacity: 1.0,
+        paddingLeft: '-=500'
+    }, 500);
 
 }
 

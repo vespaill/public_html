@@ -25,11 +25,11 @@ var cand_range = [];   // Multiplicands, leftmost column of table.
 *******************************************************************************/
 function validate(num_inputs) {
     console.log("validate(num_inputs = " + num_inputs + ");");
-    
+
     inputs = [];            // Reset globals.
     var inputValid = [];    // To know which hidden error element to reveal.
     var valid = true;       // Return value
-    
+
     /******************* Data retrieval and validation ************************/
     var i, curVal;
     for (i = 0; i < num_inputs; i++) {
@@ -46,7 +46,7 @@ function validate(num_inputs) {
             valid = false;
         }
     }
-    
+
     /**************** Display error messages if necessary *********************/
     var hidden_el;
     for (i = 0; i < num_inputs; i += 2) {
@@ -73,31 +73,31 @@ function generateTable(num_inputs) {
     /************************** Resetting globals *****************************/
     plier_range = [];
     cand_range = [];
-    
+
     /******************* Making sure the inputs are valid *********************/
     if (!validate(num_inputs)) {
         console.log("Failed validation :(");
         return;
     }
     console.log("Validatation successful\nGenerating Table");
-   
+
     /*********** Inserting the validated inputs into range arrays *************/
     plier_range.push(inputs[0]);
     plier_range.push(inputs[1]);
     cand_range.push(inputs[2]);
     cand_range.push(inputs[3]);
-    
+
     /******* If given in incorrect order, re-arrange the input numbers ********/
     if (plier_range[0] > plier_range[1])
         [plier_range[1], plier_range[0]] = [plier_range[0], plier_range[1]];
     if (cand_range[0] > cand_range[1])
         [cand_range[1], cand_range[0]] = [cand_range[0], cand_range[1]];
-    
-    /* Printing the input numbers out using the browser console to ensure that 
+
+    /* Printing the input numbers out using the browser console to ensure that
        I'm reading them correctly. */
     console.log("Multipliers: [" + plier_range + "]");
     console.log("Multiplicands: [" + cand_range + "]");
-    
+
     /********************** Generate the multpliers row ***********************/
     var i, j, table_html;
     table_html = "<tr><th></th>";
@@ -105,16 +105,16 @@ function generateTable(num_inputs) {
         table_html += "<th class=\"align-middle\">" + i + "</th>";
     }
     table_html += "</tr>";
-   
+
     /********************* Generate the rest of the rows **********************/
     for (j = cand_range[0]; j <= cand_range[1]; ++j) {
-        table_html += "</tr><th class=\"align-middle\">" + j + "</th>";
+        table_html += "<tr><th class=\"align-middle\">" + j + "</th>";
         for (i = plier_range[0]; i <= plier_range[1]; ++i) {
             table_html += "<td class=\"align-middle\">" + (i*j) + "</td>";
         }
         table_html += "</tr>";
-    } 
-    
+    }
+
     // Insert the HTML we generated for our table into the desired element.
     document.getElementById("mult-table").innerHTML = table_html;
 }
