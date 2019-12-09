@@ -7,26 +7,16 @@
 **    victor_espaillat@student.uml.edu                                        **
 *******************************************************************************/
 
-var debugging = true;
+var debugging = false;
 
 /* When the page is ready, the function inside the parentheses of the .ready()
    method is run. */
 $(document).ready(function() {
-
-    // Initialize input fields with some values.
-    if (debugging) {
-        var i = 0,
-            vals = [-10,10,-10,10];
-        $('input').each(function() {
-            $(this).val(vals[i]);
-            i++;
-        });
-    }
-
     /**************************** Form Validation *****************************/
     // Set up form validation.
-    $form = $('form');
+    var $form = $('form');
     $form.validate({
+
         highlight: function(element) {
             $(element).removeClass('input-valid').addClass('input-error');
         },
@@ -34,51 +24,67 @@ $(document).ready(function() {
         unhighlight: function(element) {
             $(element).removeClass('input-error').addClass('input-valid');
         }
+
     });
 
-    // Add these rules to each input.
-    $inputs = $('input');
+
+    // Add these rules to each input field.
+    var $inputs = $('input');
     $inputs.each(function() {
+
         $(this).rules('add', {
             required: true,
             range: [-50,50]
         });
-    });
 
-    // On click of the button, if the form is valid, generate the table.
-    $('button').on('click', function(e) {
-        e.preventDefault();
-        if ($form.valid())
-            generateTable();
     });
 
     /********************************* Slider *********************************/
-    $('.slider')
-        .slider({
-            max: 10,
-            min: -10,
-            slide: function(event, ui) {
-                var $input = $(this).parent().children('input');
-                $input.val(ui.value);
-                if ($input.valid()) {
-                    generateTable();
-                }
-            }
-        })
-        .css({
-            'display': 'inline-block',
-            'width': 0.9*parseInt( $inputs.width(), 10 ),
-            'margin-bottom': '1em'
-        });
+    // Set up slider behavior.
+    $('.slider').slider({
 
-    $('input').on('change', function() {
-        if ( $.isNumeric( $(this).val() ) ) {
-            $(this).parent().children('.slider').slider( "value", $(this).val() );
-            generateTable();
+        max: 12,
+        min: -12,
+
+        slide: function(event, ui) {                    // On slide
+
+            $(this).siblings('input').val(ui.value);    // Update input value
+            if ($form.valid()) generateTable();         // Update table if possi
+
         }
+
+    }).css('margin-bottom', '1em');
+
+
+    // If an input field is changed,
+    $inputs.on('change', function() {
+
+        // as long as the value is valid,
+        if ( $.isNumeric($(this).val()) ) {
+
+            // update the corresponding slider,
+            $(this).siblings('.slider').slider( "value", $(this).val() );
+
+            // and if the entire form is valid, update the table.
+            if ($form.valid()) generateTable();
+        }
+
     });
 
-    $('button').trigger('click');
+
+    // Initialize input fields with some values.
+    var i = 0,
+        vals = [12,-4,12,-4];
+    $inputs.each(function() {
+        $(this).val(vals[i]);
+        i++;
+    });
+    $inputs.trigger('change');
+
+
+
+    // if ($form.valid())
+    //     generateTable();
 
 });
 

@@ -12,64 +12,57 @@
 *******************************************************************************/
 * {
     margin: 0;
-    padding: 0;
-}
+    padding: 0;}
 
 body {
     color: white;
     font-size: 24px;
     background-image: url("images/the_fellowship.jpg"), url(images/grass.png);
     background-repeat: no-repeat, repeat;
-    background-size: cover;
-}
+    background-size: cover;}
 
 #wrapper {
     width: 80%;
     min-width: 300px;
     margin: auto;
-    position: relative;
-}
+    position: relative;}
 
 header {
-    font-family: "cmu_serif_italic_upright";
-    background-color: #202020;
-    padding: 1ex;
+    position: absolute;
+    margin-top: 1em;
+    font-weight: bold;
     text-align: center;
-    width: 100%;
+    font-family: "cmu_serif_italic_upright";
+    padding: 1ex;
 }
 
 h1 {
-    font-size: 48px;
-}
+    font-size: 48px;}
 
 .border-bottom {
-    border-bottom: 1px solid white;
-}
+    border-bottom: 1px solid white;}
 
 /*******************************************************************************
 **                                  Form                                      **
 *******************************************************************************/
 form {
-    width: 30%;
-    border-top: 1px solid white;
-    background-color: #202020;
+    padding: 1em;
+    margin-top: 1em;
+
+    background-image: url("images/scratched_metal.jpg");
+    background-repeat: repeat;
+
+    border-radius: 30px;
     text-align: center;
-    display: inline-block;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    overflow-x: auto;
-    padding-bottom: 1em;
 }
 
 .form-group {
-    margin-bottom: 1em;
-}
+    margin-bottom: 1em;}
 
 label {
     display: block;
     font-family: "cmu_serifroman";
     margin-bottom: 1ex;
-
 }
 
 input {
@@ -81,45 +74,38 @@ input {
     border: 0.7px solid white;
     margin: 0 auto 1em auto;
     font-size: 24px
-
 }
 
 .form-control {
     background-color: gray;
-    transition: background 0.5s;
-}
+    transition: background 0.5s;}
 
 .input-error {
     background-color: #d9534f;
-    transition: background 0.5s;
-}
+    transition: background 0.5s;}
 
 .input-valid {
     color: black;
     border: 2px solid #5cb85c;
     background-color: white;
     transition: background 0.5s, border 0.5s;
-
 }
 
 .form-control::placeholder {
-    color: white;
-}
+    color: white;}
 
 /* When selecting a form */
 .form-control:focus {
     border: 0.7px solid white;
     box-shadow: 0px 0px 5px white;
     background-color: white;
-    color: black;
-}
+    color: black;}
 
 button {
     font-family: "cmu_typewriter";
     border-radius: 3px;
     padding: 5px;
     font-size: 24px
-
 }
 
 .error {
@@ -128,34 +114,23 @@ button {
     background-color: #d9534f;
     color: white;
     font-family: "cmu_typewriter";
+    font-size: 10px;
     padding: 0 10px;
     display: table;
-    margin: 0 auto 2em auto;
-}
+    margin: 0 auto 2em auto;}
 /*******************************************************************************
 **                                  Table                                     **
 *******************************************************************************/
-/*#tabDiv {
-    overflow: hidden;
-    display: inline-block;
-}*/
+div {
+    max-height: 625px;
 
+}
 table {
     font-family: "cmu_typewriter";
     font-weight: bold;
     font-size: 12px;
-
     border-radius: 7px;
     border-collapse: collapse;
-
-    display: inline-block;
-    position: absolute;
-    overflow: auto;
-    left: 35%;
-    top: 15%;
-    vertical-align: top;
-    width: 65%;
-    height: 85%;
 }
 
 /* I don't want the curse to change into the "text" type cursor when hovering
@@ -165,37 +140,22 @@ th, td {
     text-align: center;
     /* Turn the cells into perfect squares. */
     min-width: 30px;
-    line-height: 30px;
-}
-
-/* Change background to a yellowish color when mouse HOVERS over it. */
-/*td:hover {
-    background-color: #F0AD4E;
-}*/
+    line-height: 30px;}
 
 td {
     background-color: #DCDCDC;
-    /* Fade back to default color when HOVER is off. */
-    transition: background-color 0.3s;
     color: black;
 }
-
 /*  Selects all <th> elements where the parent is a <tr> element. */
 tr > th {
     background-color: black;
-    color: white;
-}
+    color: white;}
 
 /* Hide upper-left cell */
 tr:first-child th:first-child  {
-    background-color: transparent;
-}
+    background-color: transparent;}
 
 /* Generate checkerboard pattern */
-/*tr:nth-child(even) td:nth-child(odd):not(:hover),
-tr:nth-child(odd) td:nth-child(even):not(:hover) {
-    background-color: #FF6781;
-}*/
 tr:nth-child(even) td:nth-child(odd),
 tr:nth-child(odd) td:nth-child(even) {
     background-color: #FF6781;
@@ -205,17 +165,13 @@ tr:nth-child(odd) td:nth-child(even) {
    multiplicand cell. */
 tr:nth-child(1) th:nth-child(2),
 tr:nth-child(2) th:nth-child(1) {
-    border-top-left-radius: 7px;
-}
+    border-top-left-radius: 7px;}
 
 tr:first-child th:last-child {
-    border-top-right-radius: 7px;
-}
+    border-top-right-radius: 7px;}
 
 tr:last-child td:last-child {
-    border-bottom-right-radius: 7px;
-}
+    border-bottom-right-radius: 7px;}
 
 tr:last-child th {
-    border-bottom-left-radius: 7px;
-}
+    border-bottom-left-radius: 7px;}
