@@ -1,0 +1,80 @@
+<!------------------------------------------------------------------------------
+--    File: index.html                                                        --
+--                                                                            --
+--    91.461 Assignment 8: Using the jQuery UI Slider and Tab Widgets         --
+--                                                                            --
+--    Victor M Espaillat, UMass Lowell Computer Science,                      --
+--    victor_espaillat@student.uml.edu                                        --
+------------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Interactive Dynamic Table</title>
+
+        <!------------------------- Required meta tags ------------------------>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+        shrink-to-fit=no">
+
+        <!------------------------------ Styles ------------------------------->
+        <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+        <link rel="stylesheet" href="css/jquery-ui.structure.min.css" type="text/css">
+        <link rel="stylesheet" href="css/jquery-ui.theme.min.css" type="text/css">
+        <link rel="stylesheet" href="../../fonts/font_styles.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+
+        <!----------------------------- Scripts ------------------------------->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/additional-methods.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/main.js"></script>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Interactive Dynamic Table</h1>
+            </header>
+            <form autocomplete="off">
+                <div class="form-group border-bottom">
+                    <label>
+                        Enter <u>horizontal</u> axis bounding numbers.
+                        Order does not matter.
+                    </label>
+                    <div class="inp-slider">
+                        <input id="input1" class="form-control"
+                        placeholder="Enter number" name="num_field1">
+                        <div class="slider"></div>
+                    </div>
+                    <div class="inp-slider">
+                        <input id="input2" class="form-control"
+                        placeholder="Enter number" name="num_field2">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Enter <u>vertical</u> axis bounding numbers.
+                        Order does not matter.
+                    </label>
+                    <div class="inp-slider">
+                        <input id="input3" class="form-control"
+                        placeholder="Enter number" name="num_field3">
+                        <div class="slider"></div>
+                    </div>
+                    <div class="inp-slider">
+                        <input id="input4" class="form-control"
+                        placeholder="Enter number" name="num_field4">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <button type=submit>Generate Table</button>
+            </form>
+            <!-- <div id="tab-div"> -->
+                <table></table>
+            <!-- </div> -->
+        </div>
+    </body>
+</html>
