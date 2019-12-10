@@ -16,19 +16,17 @@
 
 body {
     color: white;
-    font-size: 24px;
-    background-image: url("images/the_fellowship.jpg"), url(images/grass.png);
-    background-repeat: no-repeat, repeat;
-    background-size: cover;}
+    font-size: 18px;
+    background-image: url("images/the_fellowship.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "cmu_serifroman";
+    }
 
-#wrapper {
-    width: 80%;
-    min-width: 300px;
-    margin: auto;
-    position: relative;}
 
 header {
-    position: absolute;
     margin-top: 1em;
     font-weight: bold;
     text-align: center;
@@ -42,18 +40,26 @@ h1 {
 .border-bottom {
     border-bottom: 1px solid white;}
 
+#tabs {
+    font-family: "cmu_serifroman";}
+
 /*******************************************************************************
 **                                  Form                                      **
 *******************************************************************************/
-form {
+footer, form {
     padding: 1em;
     margin-top: 1em;
 
     background-image: url("images/scratched_metal.jpg");
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    border-radius: 30px;
+    border-radius: 15px;
     text-align: center;
+}
+
+footer {
+    margin-bottom: 1em;
 }
 
 .form-group {
@@ -61,7 +67,6 @@ form {
 
 label {
     display: block;
-    font-family: "cmu_serifroman";
     margin-bottom: 1ex;
 }
 
@@ -82,7 +87,8 @@ input {
 
 .input-error {
     background-color: #d9534f;
-    transition: background 0.5s;}
+    transition: background 0.5s;
+    color: white;}
 
 .input-valid {
     color: black;
@@ -105,6 +111,7 @@ button {
     font-family: "cmu_typewriter";
     border-radius: 3px;
     padding: 5px;
+    margin-top: 1em;
     font-size: 24px
 }
 
@@ -121,10 +128,7 @@ button {
 /*******************************************************************************
 **                                  Table                                     **
 *******************************************************************************/
-div {
-    max-height: 625px;
 
-}
 table {
     font-family: "cmu_typewriter";
     font-weight: bold;

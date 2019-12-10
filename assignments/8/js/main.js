@@ -13,7 +13,6 @@ var debugging = false;
    method is run. */
 $(document).ready(function() {
     /**************************** Form Validation *****************************/
-    // Set up form validation.
     var $form = $('form');
     $form.validate({
 
@@ -27,8 +26,7 @@ $(document).ready(function() {
 
     });
 
-
-    // Add these rules to each input field.
+    // Add the following rules to each input field.
     var $inputs = $('input');
     $inputs.each(function() {
 
@@ -40,37 +38,36 @@ $(document).ready(function() {
     });
 
     /********************************* Slider *********************************/
-    // Set up slider behavior.
     $('.slider').slider({
 
         max: 12,
         min: -12,
 
-        slide: function(event, ui) {                    // On slide
+        /* "Moving the slider should instantly change the text input field
+            value." */
+        slide: function(event, ui) {                // On slide
 
-            $(this).siblings('input').val(ui.value);    // Update input value
-            if ($form.valid()) generateTable();         // Update table if possi
+            $(this).siblings('input').val(ui.value);// Update input value
+            if ($form.valid()) generateTable();     // Update table if possible
 
         }
 
     }).css('margin-bottom', '1em');
 
+    /* "Typing into the text input field should change the value indicated by
+        the slider." */
+    $inputs.on('change', function() {       // On input change.
 
-    // If an input field is changed,
-    $inputs.on('change', function() {
+        if ( $.isNumeric($(this).val()) ) { // If the new value is valid.
 
-        // as long as the value is valid,
-        if ( $.isNumeric($(this).val()) ) {
-
-            // update the corresponding slider,
+            // Update the corresponding slider.
             $(this).siblings('.slider').slider( "value", $(this).val() );
 
-            // and if the entire form is valid, update the table.
+            // If the entire form is valid, update the table.
             if ($form.valid()) generateTable();
         }
 
     });
-
 
     // Initialize input fields with some values.
     var i = 0,
@@ -79,12 +76,39 @@ $(document).ready(function() {
         $(this).val(vals[i]);
         i++;
     });
-    $inputs.trigger('change');
+    $inputs.trigger('change');  // Generate table
+
+    /**************************** Tabbed Interface ****************************/
 
 
+    $("#tabs").tabs();
 
-    // if ($form.valid())
-    //     generateTable();
+    var i = 1;
+    var str_input_vals = "";
+    var curTabId="";
+    var $tabs = $('#tabs');
+
+    $("#save-btn").on('click', function(e) {
+        str_input_vals="";
+        $inputs.each(function() {
+            str_input_vals += $(this).val() + ', ';
+        });
+        str_input_vals = str_input_vals.substring(0, str_input_vals.length - 2);
+        str_input_vals = '('.concat(str_input_vals, ')');
+
+        curTabId = ('tabs-' + i);
+        $newTableDiv = $('#tab-div').clone();
+        $newTableDiv.children().attr('id',curTabId).addClass('overflow-auto');
+
+        e.preventDefault();
+        $('#tabs ul').append('<li><a href="#' + curTabId + '">' + str_input_vals + '</a></li>');
+        $tabs.append( $newTableDiv.html() );
+        i++;
+        $tabs.tabs("refresh");
+
+        $('a[href="#' + curTabId + '"]').click();
+
+    });
 
 });
 
@@ -112,7 +136,7 @@ function generateTable() {
 
     /* Store a reference of the table object inside a variable since it will be
        used multiple times. */
-    var $table = $('table');
+    var $table = $('#mult-tab');
     // var $tabDiv = $table.parent();
 
     $table.empty()              // Clear the table.
