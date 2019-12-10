@@ -60,6 +60,7 @@ footer, form {
 
 footer {
     margin-bottom: 1em;
+    text-align: justify;
 }
 
 .form-group {
@@ -128,6 +129,9 @@ button {
 /*******************************************************************************
 **                                  Table                                     **
 *******************************************************************************/
+
+#tab-div {
+    max-height: 600px;}
 
 table {
     font-family: "cmu_typewriter";

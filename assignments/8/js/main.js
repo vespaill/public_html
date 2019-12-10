@@ -71,7 +71,7 @@ $(document).ready(function() {
 
     // Initialize input fields with some values.
     var i = 0,
-        vals = [12,-4,12,-4];
+        vals = [12,-12,12,-12];
     $inputs.each(function() {
         $(this).val(vals[i]);
         i++;
@@ -79,33 +79,36 @@ $(document).ready(function() {
     $inputs.trigger('change');  // Generate table
 
     /**************************** Tabbed Interface ****************************/
-
-
-    $("#tabs").tabs();
-
     var i = 1;
     var str_input_vals = "";
-    var curTabId="";
+    var curTabId = "";
     var $tabs = $('#tabs');
 
+    $tabs.tabs();
+
     $("#save-btn").on('click', function(e) {
-        str_input_vals="";
+        e.preventDefault();
+
+        // Get tab label
+        str_input_vals = "";
         $inputs.each(function() {
             str_input_vals += $(this).val() + ', ';
         });
         str_input_vals = str_input_vals.substring(0, str_input_vals.length - 2);
         str_input_vals = '('.concat(str_input_vals, ')');
 
+        // Generate tab
         curTabId = ('tabs-' + i);
-        $newTableDiv = $('#tab-div').clone();
-        $newTableDiv.children().attr('id',curTabId).addClass('overflow-auto');
-
-        e.preventDefault();
+        $newDiv = $('<div>')
+                    .attr('id', curTabId).addClass('overflow-auto')
+                    .append( $('#tab-div').clone().html() );
+        $newDiv.children().removeAttr('id');
         $('#tabs ul').append('<li><a href="#' + curTabId + '">' + str_input_vals + '</a></li>');
-        $tabs.append( $newTableDiv.html() );
+        $tabs.append( $newDiv );
         i++;
-        $tabs.tabs("refresh");
 
+        // Refresh tab widget and select the newly added tab.
+        $tabs.tabs("refresh");
         $('a[href="#' + curTabId + '"]').click();
 
     });
