@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- saved from url=(0112)https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/Scrabble_Pieces_AssociativeArray_Jesse_Test.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Scrabble Associative Array Demo</title>
+
+
+<!--
+  File:
+    /~heines/91.461/91.461-2015-16f/461-assn/Scrabble_Pieces_AssociativeArray_Jesse_Test.html
+  Jesse M. Heines, UMass Lowell Computer Science, heines@cs.uml.edu
+  Copyright (c) 2015 by Jesse M. Heines.  All rights reserved.  May be freely
+    copied or excerpted for educational purposes with credit to the author.
+  updated by JMH on November 21, 2015 at 9:52 AM
+  updated by JMH on November 25, 2015 at 10:15 AM to add the blank tile and other features
+-->
+
+  <meta name="description" content="For 91.461 Assignment No. 9">
+  <link type="text/css" rel="stylesheet" href="./css/blueverdana08pt.css">
+  <link type="text/css" rel="stylesheet" href="./css/Scrabble_Pieces_AssociativeArray_Jesse_Test.css">
+
+  <!-- include jQuery library -->
+  <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+
+  <!-- read associative array containing Scrabble pieces -->
+  <script src="./js/Scrabble_Pieces_AssociativeArray_Jesse.js"></script>
+
+  <script>
+    $(document).ready( function () {
+      // define variables here to thwart hoisting
+      var char ;          // uppercase character indicated by the loop index
+      var newTableRow ;   // one row of the table
+      var newTableCell ;  // one cell in a table row
+      var nTiles = 0 ;    // number of tiles (to check that all 100 accounted for)
+
+      // populate table of tile values
+      // note that an associative array is actually an object, so to get its length
+      //    we have to first reference its keys and count those
+      for ( k = 0 ; k < Object.keys( ScrabbleTiles ).length + 1 ; k++ ) {
+        // convert the integer loop index to an uppercase character, which the
+        //    subscript of the associative array of tile objects
+        if ( k < Object.keys( ScrabbleTiles ).length - 1 ) {
+          char = String.fromCharCode( 65 + k ) ;
+        } else if ( k < Object.keys( ScrabbleTiles ).length ) {
+          char = "_" ;
+        } else {
+          char = "Total" ;
+        }
+
+        // create a new table row to hold the info on one tile
+        newTableRow = $("<tr></tr>" ) ;
+
+        // create a new table cell to hold the letter of the tile we're looking at
+        newTableCell = $("<td></td>" ) ;
+        if ( k < Object.keys( ScrabbleTiles ).length ) {
+          if ( char !== "_" ) {
+            // put the letter of the tile into the new table cell
+            newTableCell.text( char ) ;
+          } else {
+            newTableCell.text( "Blank" ) ;
+          }
+        } else {
+          newTableCell.attr( "colspan", "2" ) ;
+          newTableCell.css( {
+            "font-weight" : "bold",
+            "font-style" : "italic",
+            "background-color" : "black",
+            "color" : "white",
+            "text-align" : "right" } ) ;
+          newTableCell.text( "Total Tiles:" ) ;
+        }
+        // append the new table cell to the new table row
+        newTableRow.append( newTableCell ) ;
+
+        if ( k < Object.keys( ScrabbleTiles ).length ) {
+          // create a new table cell to hold the value of the tile we're looking at
+          newTableCell = $("<td></td>" ) ;
+          // put the letter of the tile into the new table cell
+          // here we can use the dot syntax because "value" is a plain indentifier
+          newTableCell.text( ScrabbleTiles[ char ].value ) ;
+          // append the new table cell to the new table row
+          newTableRow.append( newTableCell ) ;
+        }
+
+        // create a new table cell to hold the number of tiles remaining of the tile
+        //    we're looking at
+        newTableCell = $("<td></td>" ) ;
+        if ( k < Object.keys( ScrabbleTiles ).length ) {
+          // put the numer of tiles for the letter into the new table cell
+          // here we must use the 2-D array syntax because "number-remaining" contains a hyphen
+          newTableCell.text( ScrabbleTiles[ char ][ "number-remaining" ] ) ;
+          // add number of tiles for this letter to the count of the total number of tiles
+          nTiles += ScrabbleTiles[ char ][ "number-remaining" ] ;
+        } else {
+          newTableCell.css( {
+            "font-weight" : "bold",
+            "background-color" : "black",
+            "color" : "white" } ) ;
+          newTableCell.text( nTiles ) ;
+        }
+        // append the new table cell to the new table row
+        newTableRow.append( newTableCell ) ;
+
+        // append the complete table row to the table
+        $("#tbl").append( newTableRow ) ;
+      }
+    } ) ;
+  </script>
+</head>
+
+<body>
+  <table id="tbl">
+    <tbody><tr>
+      <th>Tile</th>
+      <th>Value</th>
+      <th>Number<br>Remaining</th>
+    </tr>
+  <tr><td>A</td><td>1</td><td>9</td></tr><tr><td>B</td><td>3</td><td>2</td></tr><tr><td>C</td><td>3</td><td>2</td></tr><tr><td>D</td><td>2</td><td>4</td></tr><tr><td>E</td><td>1</td><td>12</td></tr><tr><td>F</td><td>4</td><td>2</td></tr><tr><td>G</td><td>2</td><td>3</td></tr><tr><td>H</td><td>4</td><td>2</td></tr><tr><td>I</td><td>1</td><td>9</td></tr><tr><td>J</td><td>8</td><td>1</td></tr><tr><td>K</td><td>5</td><td>1</td></tr><tr><td>L</td><td>1</td><td>4</td></tr><tr><td>M</td><td>3</td><td>2</td></tr><tr><td>N</td><td>1</td><td>6</td></tr><tr><td>O</td><td>1</td><td>8</td></tr><tr><td>P</td><td>3</td><td>2</td></tr><tr><td>Q</td><td>10</td><td>1</td></tr><tr><td>R</td><td>1</td><td>6</td></tr><tr><td>S</td><td>1</td><td>4</td></tr><tr><td>T</td><td>1</td><td>6</td></tr><tr><td>U</td><td>1</td><td>4</td></tr><tr><td>V</td><td>4</td><td>2</td></tr><tr><td>W</td><td>4</td><td>2</td></tr><tr><td>X</td><td>8</td><td>1</td></tr><tr><td>Y</td><td>4</td><td>2</td></tr><tr><td>Z</td><td>10</td><td>1</td></tr><tr><td>Blank</td><td>0</td><td>2</td></tr><tr><td colspan="2" style="font-weight: bold; font-style: italic; background-color: black; color: white; text-align: right;">Total Tiles:</td><td style="font-weight: bold; background-color: black; color: white;">100</td></tr></tbody></table>
+
+
+</body></html>

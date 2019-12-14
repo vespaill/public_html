@@ -89,7 +89,7 @@ $(document).ready(function() {
     $("#save-btn").on('click', function(e) {
         e.preventDefault();
 
-        // Get tab label
+        // Create tab label
         str_input_vals = "";
         $inputs.each(function() {
             str_input_vals += $(this).val() + ', ';
@@ -103,7 +103,7 @@ $(document).ready(function() {
                     .attr('id', curTabId).addClass('overflow-auto')
                     .append( $('#tab-div').clone().html() );
         $newDiv.children().removeAttr('id');
-        $('#tabs ul').append('<li><a href="#' + curTabId + '">' + str_input_vals + '</a></li>');
+        $('#tabs ul').append('<li><a href="#' + curTabId + '">' + str_input_vals + "</a><span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>");
         $tabs.append( $newDiv );
         i++;
 
@@ -111,6 +111,14 @@ $(document).ready(function() {
         $tabs.tabs("refresh");
         $('a[href="#' + curTabId + '"]').click();
 
+    });
+
+
+    // Close icon: removing the tab on click
+    $tabs.on( "click", "span.ui-icon-close", function() {
+        var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+        $( "#" + panelId ).remove();
+        $tabs.tabs("refresh");
     });
 
 });
