@@ -11,13 +11,38 @@
 <html>
 <head>
     <title>Scrabble</title>
+    <link rel="stylesheet" href="../../fonts/font_styles.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 <body>
-
-    <div id="score-board"></div>
-    <div id="strip"></div>
-    <div id="rack"></div>
+    <div id="main">
+        <header>
+            <h1>Implementing a Bit of Scrabble</h1>
+        </header>
+        <div id="scoreboard">
+            <div>
+                <div class="label">Word: <span id="word"></span></div>
+            </div>
+            <div>
+                <div class="label">Score: <span id="score"></span></div>
+            </div>
+            <div>
+                <div class="label">Remaining tiles: <span id="bag"></span></div>
+            </div>
+        </div>
+        <div id="board"></div>
+        <div id="buttons">
+            <button id="next-word" style="margin-right: 2em">Next Word</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div id="rack"></div>
+        <footer>
+            Copyright &copy; 2019 Victor M. Espaillat
+            <br>
+            <a href="mailto:victor_espaillat@student.uml.edu">victor_espaillat@student.uml.edu</a>
+        </footer>
+    </div>
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
