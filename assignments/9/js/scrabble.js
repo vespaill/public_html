@@ -43,8 +43,8 @@ ObjScrabble.init = function() {
     ObjScrabble.dictTiles['Y'] = { 'value': 4,  'freq' : 2,  'quantity' : 2 };
     ObjScrabble.dictTiles['Z'] = { 'value': 10, 'freq' : 1,  'quantity' : 1 };
     ObjScrabble.dictTiles['_'] = { 'value': 0,  'freq' : 2,  'quantity' : 2 };
-
     ObjScrabble.size = Object.keys(ObjScrabble.dictTiles).length;
+
     if (debugging) console.log('ObjScrabble.size: ', ObjScrabble.size);
 
     /** BAG SETUP *****************************************************************/
@@ -54,8 +54,11 @@ ObjScrabble.init = function() {
             ObjScrabble.bag.push( key );
         }
     }
-    if (debugging) console.log('bag.length: ', ObjScrabble.bag.length);
-    if (debugging) console.log(ObjScrabble.bag);
+
+    if (debugging) {
+        console.log('bag.length: ', ObjScrabble.bag.length);
+        console.log(ObjScrabble.bag);
+    }
 }
 
 /*******************************************************************************
@@ -77,11 +80,3 @@ ObjScrabble.drawTileFromBag = function () {
 
     return strLetter;
 }
-
-
-// for (i = 0; i < 105; ++i) {
-//     if (ObjScrabble.getRandLett() == null)
-//         console.log('null');
-//     // console.log(bjScrabble.getRandLett());
-//     // console.log('bag.length: ', ObjScrabble.bag.length);
-// }

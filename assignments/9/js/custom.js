@@ -14,9 +14,9 @@ const RACK_MAX_TILES = 7;
 var totalScore = 0;
 
 $(document).ready(function() {
-    ObjScrabble.init();
+    ObjScrabble.init();     // Initialize scrabble object.
 
-    /** Generate board **/
+    /** Initialize custom board **/
     var $blank = $('<div>').addClass('board-blank slot droppable ui-widget-header')
                            .attr('letter-mult', 1)
                            .attr('word-mult', 1);
@@ -38,11 +38,9 @@ $(document).ready(function() {
         .append($doublew.clone().attr('col', k++))
         .append($blank.clone().attr('col', k++));
 
-    /** Draw tiles to rack **/
-    drawHand();
-
-    /** Make tiles draggable **/
-    makeTilesDraggable();
+    drawHand();             // Draw tiles to rack
+    refreshScoreboard();    // Init scoreboard
+    makeTilesDraggable();   // Enable tile dragging functionality
 
     /** Allow the dropping of tiles into the board slots **/
     $('.slot').droppable({
@@ -50,14 +48,16 @@ $(document).ready(function() {
         hoverClass: 'drop-hover',
         drop: function (event, ui) {
             var $this = $(this);
-            if ( $this.children().length == 0 ) {
+            if ( $this.children().length == 0 ) {   // If this slot is available
                 ui.draggable
-                    .detach()
-                    .css({top: 0, left: 0})
-                    .addClass('drawn')
-                    .appendTo($this);
+                    .detach()                       // Detach tile from rack
+                    .css({top: 0, left: 0})         // Position it ontop of slot
+                    .addClass('drawn')              // say tile has been 'drawn'
+                    .appendTo($this);               // add it to the slot
+                refreshScoreboard();
 
-                refreshScoreBoard();
+                // A tile has been drawn, so we have room to drawn a new tile.
+                $('#next-word').prop('disabled', false);
             }
         }
     });
@@ -68,43 +68,44 @@ $(document).ready(function() {
         tolerance: 'intersect',
         hoverClass: 'drop-hover',
         drop: function (e, ui) {
-            ui.draggable.detach()
-                        .removeClass('drawn')
+            ui.draggable.detach()               // Detach tile fro mslot
+                        .removeClass('drawn')   // Thus it's no longer drawn
                         .css({top:0, left:0})
-                        .appendTo($(this));
-            refreshScoreBoard();
+                        .appendTo($(this));     // Add it to the rack
+            refreshScoreboard();
         }
     });
 
     $('#reset').on('click', function(e) {
         e.preventDefault();
         ObjScrabble.init();
-        clearBoard();
-        clearRack();
+        $('#board').children().empty();     // Clear board
+        $('#rack').empty();                 // Clear rack
         drawHand();
         makeTilesDraggable();
-        refreshScoreBoard();
+        refreshScoreboard();
         totalScore = 0;
         $('#total-score').text(totalScore);
     })
 
     $('#next-word').on('click', function(e) {
         e.preventDefault();
-        clearBoard();
+        $('#board').children().empty();     // Clear board
         drawHand();
         makeTilesDraggable();
 
         var cur_score = parseInt($('#cur-score').text(), 10);
         totalScore += cur_score;
         $('#total-score').text(totalScore);
-
-        refreshScoreBoard();
+        refreshScoreboard();
     });
 
-    refreshScoreBoard();
 });
 
-function refreshScoreBoard() {
+// Stores the tile letter values into a string
+// Updates the total and current score
+// Updates the number of tiles left in bag.
+function refreshScoreboard() {
 
     var strWord = "";
     var score = 0;
@@ -112,50 +113,54 @@ function refreshScoreBoard() {
     var letterMult = 1;
     var wordMult = 1;
 
-    $('.drawn').each(function(){
-        var $this = $(this)
-        strWord += $this.attr('letter');
+    /* For each drawn tile, calculate its value based on the tile itself
+       and the board slot in which it resides. */
+    $('.slot').each(function() {
+        var $this = $(this);
+        var $child;
+        if ( $this.children().length > 0 ) {
+            $child = $this.find('img');
+            strWord += $child.attr('letter');
 
-        letterVal = parseInt($this.attr('value'), 10);
-        letterMult = parseInt($this.parent().attr('letter-mult'), 10);
+            letterVal = parseInt($child.attr('value'), 10);
+            letterMult = parseInt($this.attr('letter-mult'), 10);
 
-        score += (letterVal * letterMult);
-        wordMult *= parseInt($this.parent().attr('word-mult'), 10);
+            score += (letterVal * letterMult);
+            wordMult *= parseInt($this.attr('word-mult'), 10);
+        } else {
+            strWord += '.';
+        }
+
     });
 
+    // Write out values
     $('#word').text(strWord);
     $('#cur-score').text(score*wordMult);
     $('#bag').text(ObjScrabble.bag.length);
 
 }
 
-function clearBoard() {
-    $('#board').children().children().each(function() {
-        $(this).remove();
-    });
-}
-
-function clearRack() {
-    $('#rack').children().each(function() {
-        $(this).remove();
-    });
-}
-
+// Draws tiles from the bag in order to fill player's hand to 7 tiles.
 function drawHand() {
     var $rack = $('#rack');
     var $tile = $('<img>').addClass('tile draggable ui-widget-content');
     var i = $rack.children().length;
     for (; i < RACK_MAX_TILES; ++i) {
         var key = ObjScrabble.drawTileFromBag();
-        var strSrc = 'images/tiles/Scrabble_Tile_' + key + '.jpg';
-        var $newTile = $tile.clone()
-                            .attr('value', ObjScrabble.dictTiles[key].value)
-                            .attr('letter', key)
-                            .attr('src', strSrc)
-                            .appendTo('#rack');
+        if (key) {
+            var strSrc = 'images/tiles/Scrabble_Tile_' + key + '.jpg';
+            var $newTile = $tile.clone()
+                                .attr('value', ObjScrabble.dictTiles[key].value)
+                                .attr('letter', key)
+                                .attr('src', strSrc)
+                                .appendTo('#rack');
+        }
     }
+    // Hand full, thus disable draw button.
+    $('#next-word').prop('disabled', true);
 }
 
+// Sets up the tiles to be draggable.
 function makeTilesDraggable() {
     $('.tile').draggable({
         revert: true,
