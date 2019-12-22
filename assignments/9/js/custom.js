@@ -10,18 +10,24 @@
 'use strict'
 
 var debugging = false;
+const RACK_MAX_TILES = 7;
+var totalScore = 0;
 
 $(document).ready(function() {
+    ObjScrabble.init();
 
-    // Generate board
+    /** Generate board **/
     var $blank = $('<div>').addClass('board-blank slot droppable ui-widget-header')
                            .attr('letter-mult', 1)
                            .attr('word-mult', 1);
-
-    var $doublew = $blank.clone().addClass('board-double-word').removeClass('board-blank');
-    var $doublel = $blank.clone().addClass('board-double-letter').removeClass('board-blank');
-    $doublew.attr('word-mult', 2);
-    $doublel.attr('letter-mult', 2);
+    var $doublew = $blank.clone()
+                         .addClass('board-double-word')
+                         .removeClass('board-blank')
+                         .attr('word-mult', 2);
+    var $doublel = $blank.clone()
+                         .addClass('board-double-letter')
+                         .removeClass('board-blank')
+                         .attr('letter-mult', 2);
     var k = 0;
     $('#board')
         .append($blank.clone().attr('col', k++))
@@ -32,32 +38,13 @@ $(document).ready(function() {
         .append($doublew.clone().attr('col', k++))
         .append($blank.clone().attr('col', k++));
 
-    // Generate rack
-    var RACK_NUM_TILES = 7, i;
-    var $rack = $('#rack');
-    var $tile = $('<img>').addClass('tile draggable ui-widget-content');
-    for (i = 0; i < RACK_NUM_TILES; ++i) {
-        var $newTile = $tile.clone();
-        var key = ObjScrabble.getRandLett();
-        $newTile.attr('value', ObjScrabble.dictTiles[key].value)
-                .attr('letter', key);
-        var strSrc = 'images/tiles/Scrabble_Tile_' + key + '.jpg';
-        if (debugging) console.log(strSrc);
-        $newTile.attr('src', strSrc)
-        $('#rack').append($newTile);
-    }
+    /** Draw tiles to rack **/
+    drawHand();
 
-    $('.tile').draggable({
-        revert: true,
-        revertDuration: 100,
-        start: function (e, ui) {
-            $(this).addClass('hovering');
-        },
-        stop: function (e, ui) {
-            $(this).removeClass('hovering');
-        }
-    });
+    /** Make tiles draggable **/
+    makeTilesDraggable();
 
+    /** Allow the dropping of tiles into the board slots **/
     $('.slot').droppable({
         tolerance: 'intersect',
         hoverClass: 'drop-hover',
@@ -66,7 +53,7 @@ $(document).ready(function() {
             if ( $this.children().length == 0 ) {
                 ui.draggable
                     .detach()
-                    .css({top: 0,left: 0})
+                    .css({top: 0, left: 0})
                     .addClass('drawn')
                     .appendTo($this);
 
@@ -75,17 +62,46 @@ $(document).ready(function() {
         }
     });
 
+    /** Allow the dropping of tiles back into the rack **/
     $('#rack').droppable({
         accept: '.drawn',
         tolerance: 'intersect',
         hoverClass: 'drop-hover',
         drop: function (e, ui) {
-            var $this = $(this);
-            ui.draggable.detach().removeClass('drawn').css({top:0, left:0}).appendTo($this);
+            ui.draggable.detach()
+                        .removeClass('drawn')
+                        .css({top:0, left:0})
+                        .appendTo($(this));
             refreshScoreBoard();
         }
     });
-refreshScoreBoard();
+
+    $('#reset').on('click', function(e) {
+        e.preventDefault();
+        ObjScrabble.init();
+        clearBoard();
+        clearRack();
+        drawHand();
+        makeTilesDraggable();
+        refreshScoreBoard();
+        totalScore = 0;
+        $('#total-score').text(totalScore);
+    })
+
+    $('#next-word').on('click', function(e) {
+        e.preventDefault();
+        clearBoard();
+        drawHand();
+        makeTilesDraggable();
+
+        var cur_score = parseInt($('#cur-score').text(), 10);
+        totalScore += cur_score;
+        $('#total-score').text(totalScore);
+
+        refreshScoreBoard();
+    });
+
+    refreshScoreBoard();
 });
 
 function refreshScoreBoard() {
@@ -108,7 +124,48 @@ function refreshScoreBoard() {
     });
 
     $('#word').text(strWord);
-    $('#score').text(score*wordMult);
+    $('#cur-score').text(score*wordMult);
     $('#bag').text(ObjScrabble.bag.length);
 
+}
+
+function clearBoard() {
+    $('#board').children().children().each(function() {
+        $(this).remove();
+    });
+}
+
+function clearRack() {
+    $('#rack').children().each(function() {
+        $(this).remove();
+    });
+}
+
+function drawHand() {
+    var $rack = $('#rack');
+    var $tile = $('<img>').addClass('tile draggable ui-widget-content');
+    var i = $rack.children().length;
+    for (; i < RACK_MAX_TILES; ++i) {
+        var key = ObjScrabble.drawTileFromBag();
+        var strSrc = 'images/tiles/Scrabble_Tile_' + key + '.jpg';
+        var $newTile = $tile.clone()
+                            .attr('value', ObjScrabble.dictTiles[key].value)
+                            .attr('letter', key)
+                            .attr('src', strSrc)
+                            .appendTo('#rack');
+    }
+}
+
+function makeTilesDraggable() {
+    $('.tile').draggable({
+        revert: true,
+        revertDuration: 100,
+        scroll: false,
+        start: function (e, ui) {
+            $(this).addClass('hovering');
+        },
+        stop: function (e, ui) {
+            $(this).removeClass('hovering');
+        }
+    });
 }

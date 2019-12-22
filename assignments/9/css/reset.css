@@ -1,11 +1,15 @@
-/*
-Author: Yong Cho
-Email: Yong_Cho@student.uml.edu
-Created: 9/18/2015
-File Description: Clears default style values. The entire contents of this 
-file is copied from 'CSS3 the missing manual 3rd edition' written by David 
-Sawyer McFarland and published by O'REILLY.
-*/
+/*******************************************************************************
+**    File: reset.css                                                         **
+**                                                                            **
+**    91.461 Assignment 9: Implementing a Bit of Scrabble with Drag-and-Drop  **
+**                                                                            **
+**    Victor M Espaillat, UMass Lowell Computer Science,                      **
+**    victor_espaillat@student.uml.edu                                        **
+**                                                                            **
+**    Clears default style values. The entire contents of this  file is       **
+**    copied from 'CSS3 the missing manual 3rd edition' written by David      **
+**    Sawyer McFarland and published by O'REILLY.                             **
+*******************************************************************************/
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,

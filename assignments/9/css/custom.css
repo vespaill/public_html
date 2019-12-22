@@ -30,6 +30,10 @@ body {
     padding: 1cm 0 1cm 0;
 }
 
+span {
+    font-family: "cmu_typewriter";
+}
+
 button {
     font-weight: bold;
     font-size: 20px;
@@ -57,7 +61,6 @@ h1 {
 #scoreboard {
     height: 30px;
     width: 574px;
-    /*border: 1px solid white;*/
 }
 
 #board {
