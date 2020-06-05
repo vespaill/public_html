@@ -156,9 +156,10 @@ i {
     display: grid;
     grid-template: auto / 1fr 1fr;
 }
-#interests a:hover {
+
+/* #interests a:hover {
     cursor: context-menu;
-}
+} */
 
 article {
     margin: auto;
@@ -168,14 +169,14 @@ article {
     color: #bbb;
 }
 
-article:hover img {
+/* #content-link article:hover img {
     border: 3px solid #f0ad4e;
 }
 
-article:hover p {
+#content-link article:hover p {
     color: #f0ad4e;
     font-weight: bold;
-}
+} */
 
 article ul {
     font-size: 14px;
