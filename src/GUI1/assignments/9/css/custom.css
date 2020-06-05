@@ -1,0 +1,144 @@
+/*******************************************************************************
+**    File: custom.css                                                        **
+**                                                                            **
+**    91.461 Assignment 9: Implementing a Bit of Scrabble with Drag-and-Drop  **
+**                                                                            **
+**    Victor M Espaillat, UMass Lowell Computer Science,                      **
+**    victor_espaillat@student.uml.edu                                        **
+*******************************************************************************/
+
+body {
+    background-color: #252525;
+    font-family: "cmu_serifroman";
+    color: #F5F5F5;
+    margin-bottom: 1in;
+}
+
+#main {
+    background-color: #9B1C31;
+    margin: auto;
+    margin-top: 0;
+    width: 800px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: 1px #F0E68C solid;
+    border-top: none;
+}
+
+#buttons {
+    text-align: center;
+    padding: 1cm 0 1cm 0;
+}
+
+span {
+    font-family: "cmu_typewriter";
+}
+
+button {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "cmu_typewriter";
+    width: 200px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #EEE9D9;
+    border-color: #d0c295;
+}
+
+#main > * {
+    margin: auto;
+}
+
+header {
+    padding: 2em 0 2em 0;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+#scoreboard {
+    height: 30px;
+    width: 574px;
+}
+
+#board {
+    width: 595px;
+    height: 92px;
+}
+
+#rack {
+    width: 640px;
+    height: 182px;
+    padding-top: 45px;
+    padding-left: 70px;
+    background-image: url('../images/tile-holder.png') ;
+    background-repeat: no-repeat;
+}
+
+.slot {
+    position: relative;
+}
+
+.board-blank {
+    background-image: url('../images/board/blank.png');
+}
+
+.board-double-word {
+    background-image: url('../images/board/double_word.png');
+}
+
+.board-double-letter {
+    background-image: url('../images/board/double_letter.png');
+    background: fit;
+
+}
+
+.draggable {
+    width: 80px;
+    height: 88px;
+    float: left;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: #5CB85C;
+    z-index: 1;
+}
+
+.droppable {
+    width: 81px;
+    height: 88px;
+    float: left;
+    margin: 0;
+    margin-right: 2px;
+    position: relative;
+    top: 2px;
+    border: 1px black solid;
+}
+
+.drop-hover {
+    box-shadow: 0 0 5px 5px #F0E68C;
+    z-index: 1;
+    transition: box-shadow 0.2s;
+}
+
+
+.hovering {
+    z-index: 100;
+    box-shadow: 5px 5px 5px 0px black;
+    transition: box-shadow 0.2s;
+}
+
+#scoreboard > div, #scoreboard > div > div  {
+    display: inline-block;
+    width: 150px;
+}
+
+footer {
+    padding: 0.5in 1em 1em 1em;
+    text-align: right;
+}
+
+a {
+    color: #F0E68C ;
+}

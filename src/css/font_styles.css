@@ -1,0 +1,34 @@
+﻿/*******************************************************************************
+**    File: font_styles.css                                                   **
+**                                                                            **
+**    Importing some elegant LaTeX fonts                                      **
+*******************************************************************************/
+@font-face {
+    font-family: "cmu_serifroman";
+    src: url("../assets/fonts/cmunrm-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "cmu_serifitalic";
+    src: url("../assets/fonts/cmunti-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "cmu_serif_italic_upright";
+    src: url("../assets/fonts/cmunui-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "cmu_typewriter";
+    src: url("../assets/fonts/cmuntt-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "cmu_typewriter_italic";
+    src: url("../assets/fonts/cmunit-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family:"Liberate Wide Normal";
+    src:url("../assets/fonts/libewn.woff") format("woff");
+}

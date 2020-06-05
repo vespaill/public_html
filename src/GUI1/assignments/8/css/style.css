@@ -1,0 +1,185 @@
+/*******************************************************************************
+**    File: style.css                                                         **
+**                                                                            **
+**    91.461 Assignment 8: Using the jQuery UI Slider and Tab Widgets         **
+**                                                                            **
+**    Victor M Espaillat, UMass Lowell Computer Science,                      **
+**    victor_espaillat@student.uml.edu                                        **
+*******************************************************************************/
+
+/*******************************************************************************
+**                                 General                                    **
+*******************************************************************************/
+* {
+    margin: 0;
+    padding: 0;}
+
+body {
+    color: white;
+    font-size: 18px;
+    background-image: url("images/the_fellowship.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "cmu_serifroman";
+}
+
+
+header {
+    margin-top: 1em;
+    font-weight: bold;
+    text-align: center;
+    font-family: "cmu_serif_italic_upright";
+    padding: 1ex;
+}
+
+h1 {
+    font-size: 48px;}
+
+.border-bottom {
+    border-bottom: 1px solid white;}
+
+#tabs {
+    font-family: "cmu_serifroman";}
+
+/*******************************************************************************
+**                                  Form                                      **
+*******************************************************************************/
+footer, form {
+    padding: 1em;
+    margin-top: 1em;
+
+    background-image: url("images/scratched_metal.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 15px;
+    text-align: center;
+}
+
+footer {
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+.form-group {
+    margin-bottom: 1em;}
+
+label {
+    display: block;
+    margin-bottom: 1ex;
+}
+
+input {
+    border-radius: 3px;
+    display: block;
+    font-family: "cmu_typewriter_italic";
+    text-align: center;
+    color: white;
+    border: 0.7px solid white;
+    margin: 0 auto 1em auto;
+    font-size: 24px
+}
+
+.form-control {
+    background-color: gray;
+    transition: background 0.5s;}
+
+.input-error {
+    background-color: #d9534f;
+    transition: background 0.5s;
+    color: white;}
+
+.input-valid {
+    color: black;
+    border: 2px solid #5cb85c;
+    background-color: white;
+    transition: background 0.5s, border 0.5s;
+}
+
+.form-control::placeholder {
+    color: white;}
+
+/* When selecting a form */
+.form-control:focus {
+    border: 0.7px solid white;
+    box-shadow: 0px 0px 5px white;
+    background-color: white;
+    color: black;}
+
+button {
+    font-family: "cmu_typewriter";
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 1em;
+    font-size: 24px
+}
+
+.error {
+    margin-left: 1em;
+    border-radius: 10px;
+    background-color: #d9534f;
+    color: white;
+    font-family: "cmu_typewriter";
+    font-size: 10px;
+    padding: 0 10px;
+    display: table;
+    margin: 0 auto 2em auto;}
+/*******************************************************************************
+**                                  Table                                     **
+*******************************************************************************/
+
+#tab-div {
+    max-height: 600px;}
+
+table {
+    font-family: "cmu_typewriter";
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 7px;
+    border-collapse: collapse;
+}
+
+/* I don't want the curse to change into the "text" type cursor when hovering
+   over table text. I want it to always be the default "context-menu" cursor. */
+th, td {
+    cursor: context-menu;
+    text-align: center;
+    /* Turn the cells into perfect squares. */
+    min-width: 30px;
+    line-height: 30px;}
+
+td {
+    background-color: #DCDCDC;
+    color: black;
+}
+/*  Selects all <th> elements where the parent is a <tr> element. */
+tr > th {
+    background-color: black;
+    color: white;}
+
+/* Hide upper-left cell */
+tr:first-child th:first-child  {
+    background-color: transparent;}
+
+/* Generate checkerboard pattern */
+tr:nth-child(even) td:nth-child(odd),
+tr:nth-child(odd) td:nth-child(even) {
+    background-color: #FF6781;
+}
+
+/* Round out the top-left edges of the first multipler cell and the first
+   multiplicand cell. */
+tr:nth-child(1) th:nth-child(2),
+tr:nth-child(2) th:nth-child(1) {
+    border-top-left-radius: 7px;}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 7px;}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 7px;}
+
+tr:last-child th {
+    border-bottom-left-radius: 7px;}

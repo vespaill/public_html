@@ -1,0 +1,154 @@
+/*
+File: style.css
+91.461 Assignment: Creating Your First Web Page
+Victor M Espaillat, UMass Lowell Computer Science, victor_espaillat@student.uml.edu
+*/
+
+/* Here I'm removing padding from all elements. */
+* {
+    padding: 0;
+}
+
+/* I'm using auto margins on the left and right in order to center the body.
+   I have increased letter spacing in the body and h1 in an effort to make
+   the text more readable. */
+body {
+    /* Box styles */
+    background: #202020;
+    width: 60%;
+    min-width: 500px;
+    max-width: 1500px;
+    margin: 30px auto 30px auto;
+
+    /* Font styles*/
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Courgette', cursive;
+    font-size: 64px;
+    font-weight: 400;    /* making the text lighter */
+    text-align: right;
+    letter-spacing: 5px;
+}
+
+nav {
+    border-bottom: 1px solid gray;
+}
+
+/* Removing the bullet points and letting all the list elements be on the same
+   line*/
+nav ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+nav li a {
+    padding: 16px;
+    color: #bbb;
+}
+
+/* Make it so that when the mouse hovers over nav elements, they change font
+   colors. The 'current' nav element is also changed. */
+nav a:hover, #current, .block_nav a:hover {
+    color: #6495ED;
+    font-weight: bold;
+}
+
+
+/* I'm increasing the line height to make the text more readable. */
+#intro {
+    border-bottom: 1px solid gray;
+    margin: 0 auto 60px auto;
+    padding: 30px;
+    text-align: justify;
+    line-height: 200%;
+}
+
+#intro::first-letter {
+    font-size: 150%;
+}
+
+article {
+    padding: 30px 0 30px 0;
+    text-align: center;
+    margin: auto;
+    width: 250px;
+    color: #bbb;
+}
+
+article:hover img{
+    border: 3px solid #6495ED;
+}
+
+article:hover p{
+    color: #6495ED;
+    font-weight: bold;
+}
+
+#interest {
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+    border-bottom: 1px solid gray;
+}
+
+h2 {
+    font-size: 24px;
+    padding-left: 30px;
+    color: #6495ED;
+    grid-column: 1/3;
+}
+
+article ul {
+    text-align: justify;
+    list-style-position: inside;
+    line-height: 50px;
+    font-size: 14px;
+}
+
+/* I'm including a border of the same color as the background because I have a
+   special border coloring when hovering over images. If I don't add this
+   invisible border, when hovering over images, it would look like the image
+   moves slightly because space for a new border would have to be accomodated. */
+img {
+    border: 3px solid #202020;
+    display: block;
+    margin: auto;
+    border-radius: 30px;
+    width: 80%;
+}
+
+/* Changing links' colors and removing their underlined style. */
+a {
+    color: #6495ED;
+    text-decoration: none;
+}
+
+/* Making the footer text smaller as conventional. */
+footer {
+    font-size: 12px;
+    padding: 30px;
+    font-style: italic;
+}
+
+.block_nav  {
+    width: 80%;
+    margin: auto;
+}
+
+.block_nav ul li {
+    /* list-style-type: none; */
+    padding: 10px 0 10px 0;
+}
+
+.block_nav li a {
+    color: #bbb;
+}
+
+footer img {
+    float: left;
+}
