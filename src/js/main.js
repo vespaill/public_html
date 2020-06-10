@@ -22,7 +22,7 @@ var content = {
     },
     main: {
         'home.':
-            '<div id="interests"><h2>interests.</h2><article><img src="assets/images/vegetables.jpg" alt="cacao"><p>Nutrition</p></article><article><img src="assets/images/desktop.jpg" alt="desktop"><p>Gaming</p></article><a class="content-link" target="_blank" href="https://en.wikipedia.org/wiki/Hidetaka_Miyazaki#Works"><article><img src="assets/images/darksouls.jpg" alt="darksouls"><p>Hidetaka Miyazaki&rsquo;s Works 2009 – present</p></article></a><article><img src="assets/images/deadlift.png" alt="deadlift"><p>Strength Training</p></article></div>',
+            '<div id="interests"><h2>interests.</h2><article><img src="assets/images/vegetables.jpg" alt="cacao"><p>Nutrition</p></article><article><img src="assets/images/desktop.jpg" alt="desktop"><p>Gaming</p></article><a class="content-link" target="_blank" href="https://en.wikipedia.org/wiki/Hidetaka_Miyazaki#Works"><article><img src="assets/images/darksouls.jpg" alt="darksouls"><p>Hidetaka Miyazaki&rsquo;s Works 2009 – present</p></article></a><a class="content-link" target="_blank" href="./strengthTraining.html"><article><img src="assets/images/deadlift.png" alt="deadlift"><p>Strength Training</p></article></a></div>',
         'class.':
             '<div class="list"><ol><a href="GUI1/assignments/1/index.html" target="_blank"><li>Setting Up to Take This Course</li></a><a href="GUI1/assignments/2/index.html" target="_blank"><li>Creating Your First Web Page</li></a><a href="GUI1/assignments/3/index.html" target="_blank"><li>Style a Site with External CSS</li></a><a href="GUI1/assignments/4/index.html" target="_blank"><li>Styling Your First Web Page With CSS</li></a><a href="GUI1/assignments/5/HW5.pdf" target="_blank"><li>Intro to GitHub</li></a><a href="GUI1/assignments/6/index.html" target="_blank"><li>Interactive Dynamic Table styled with Boostrap</li></a><a href="GUI1/assignments/7/index.html" target="_blank"><li>Using the jQuery Validation Plugin with Your Dynamic Table</li></a><a href="GUI1/assignments/8/index.html" target="_blank"><li>Using the jQuery UI Slider and Tab Widgets</li></a><a href="GUI1/assignments/9/index.html" target="_blank"><li>Implementing a Bit of Scrabble with Drag-and-Drop</li></a></ol></div><div class="intro border-bottom border-top"><p>And here we have my in-class exersices.</p></div><div class="list"><ol><a href="GUI1/in_class_exercises/1/InClass_Clean_leture4_based.html" target="_blank"><li>Embedded/Internal CSS</li></a><a href="GUI1/in_class_exercises/2/example.html" target="_blank"><li>CSS Boxes</li></a><a href="GUI1/in_class_exercises/3/Exercise.html" target="_blank"><li>Bootstrap</li></a><li class="royalBlueBold">JavaScript</li><ul><a href="GUI1/in_class_exercises/4/example1_source/add-content.html" target="_blank"><li>Time Sensitive Greeting</li></a><a href="GUI1/in_class_exercises/4/example2_source/example.html" target="_blank"><li>Tiled Sign Cost Calculation</li></a></ul><a href="GUI1/in_class_exercises/5/string-object.html" target="_blank"><li>String Objects</li></a><a href="GUI1/in_class_exercises/6/example.html" target="_blank"><li>Modifying DOM elements</li></a></ol></div>',
         'projects.':
@@ -37,7 +37,7 @@ var content = {
  * @param {*} parent A <ul> element,
  * @param {*} target An <a> element
  */
-function updateCurrent(parent, target) {
+function updateCurNavItem(parent, target) {
     if (debugging) {
         if (parent.nodeName != 'UL' || target.nodeName != 'A') {
             console.log('updateCurrent: ');
@@ -58,8 +58,8 @@ function updateCurrent(parent, target) {
 
 
 /**
- * The intro and main divs will be updated according to the given navbar link
- * element, assumed to be the target of the given event e.
+ * Updates the intro and main divs according to the given navbar link element,
+ * assumed to be the target of the given event e.
  * @param {*} e event, or event target
  */
 function updateContent(e) {
@@ -68,14 +68,14 @@ function updateContent(e) {
 
     var target;
     if (e.target) {
-        target = e.target; /* Get <a> */
+        target = e.target;     /* Get <a> */
     } else if (e.srcElement) {
         target = e.srcElement; /* IE fallback */
     } else {
-        target = e; /* Assume e is already equal */
-    } /* to the target element */
+        target = e;            /* Assume e is already equal to target element */
+    }
 
-    var targetText = target.textContent; /* Get <a> text content */
+    var targetText = target.textContent;      /* Get <a> text content */
     var el_ul = target.parentNode.parentNode; /* Get <ul> */
 
     if (debugging) {
@@ -89,12 +89,13 @@ function updateContent(e) {
     }
 
     /* Update content based on clicked navbar item. */
-    if (content.intro[targetText]) {
-        /* If the content is valid */
+    if (content.intro[targetText]) { /* If the content is valid */
+
         if (debugging) console.log('Valid nav element');
 
-        updateCurrent(el_ul, target);
+        updateCurNavItem(el_ul, target);
 
+        /*  */
         elIntro.innerHTML = '<p>' + content.intro[targetText] + '</p>';
         elMain.innerHTML = content.main[targetText];
     }
@@ -118,8 +119,11 @@ function updateContent(e) {
  */
 function setup() {
     /* Get the first navbar link. */
-    var el_first_nav_el_link = document.getElementById('navbar').firstChild
-        .nextSibling.firstChild;
+    var el_first_nav_el_link = document.getElementById('navbar')
+        .firstChild
+        .nextSibling
+        .firstChild;
+
     updateContent(el_first_nav_el_link);
 
     if (debugging) {
@@ -127,16 +131,10 @@ function setup() {
         console.log(el_first_nav_el_link);
     }
 
-    /* Set up event listener to call updateContent() on click */
-    var el = document.getElementById('navbar'); /* Get navbar list */
-    el.addEventListener(
-        'click',
-        function (e) {
-            /* Add listener on click */
-            updateContent(e); /* It calls updateContent() */
-        },
-        false
-    ); /* Use bubbling phase for flow */
+    var el = document.getElementById('navbar');
+    el.addEventListener('click', function (e) {
+        updateContent(e);
+    }, false );
 }
 
 
